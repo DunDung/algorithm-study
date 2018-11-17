@@ -32,7 +32,6 @@ public class Q4673 {
 			n %=10;
 
 		}
-
 		return res+n;
 	}
 }
