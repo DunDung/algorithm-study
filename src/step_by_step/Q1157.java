@@ -1,10 +1,10 @@
 package step_by_step;
 
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
 
 public class Q1157 {
 
@@ -12,22 +12,27 @@ public class Q1157 {
 		Scanner scan = new Scanner(System.in);
 		String s = scan.next();
 		s=s.toUpperCase();
-		Map <String, Integer> m = new HashMap<>(); 
+		Map<String, Integer> m = new HashMap<>();
 		for(int i=0; i<s.length(); i++) {
-			if(m.containsKey(s.substring(i, i+1)))
-				m.replace(s.substring(i,i+1), m.get(s.substring(i,i+1)), m.get(s.substring(i,i+1))+1);
-			else 
+			if(!m.containsKey(s.substring(i, i+1)))
 				m.put(s.substring(i, i+1), 1);
+			else
+				m.replace(s.substring(i, i+1), m.get(s.substring(i, i+1)), m.get(s.substring(i, i+1))+1);
 		}
-		int max = m.get(0);
-		for(int i=1; i<m.size(); i++) {
-			if(max<m.get(i))
-				max = m.get(i);
+		Iterator<Entry<String, Integer>> itr = m.entrySet().iterator();
+		int max = 0;
+		String r = null;
+		while(itr.hasNext()) {
+			Map.Entry<String, Integer> e = (Map.Entry<String, Integer>)itr.next();
+			if(max<e.getValue()) {
+				max = e.getValue();
+				r = e.getKey();
+			}
 		}
-		System.out.println(max);
-		
-		
-		Set<String> z = m.keySet();
-		Collection<Integer> c = m.values();
+		m.remove(r);
+		if(m.containsValue(max))
+			System.out.println("?");
+		else
+			System.out.println(r);
 	}
 }
