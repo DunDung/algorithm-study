@@ -9,7 +9,6 @@ public class Q1193 {
 		int sum = 0;
 		int n=0;
 		int b =0;
-		int cnt = 0;
 		while(sum<a){
 			n++;
 			sum = sum + n;
@@ -21,6 +20,5 @@ public class Q1193 {
 		else{
 			System.out.println(b+"/"+(n+1-b));
 		}
-
 	}
 }
