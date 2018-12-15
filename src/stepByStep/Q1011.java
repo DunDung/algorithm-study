@@ -1,43 +1,30 @@
 package stepByStep;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Q1011 {
-
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
+		int num = scan.nextInt();
+		int[] result = new int[num];
 		
-		List<Integer> l = new ArrayList<>();
-		int n = scan.nextInt();
-		for(int i=0; i<n; i++) {
-			int count = 0;
-			long system = 0;
-			boolean s = false;
-			long x = scan.nextInt();
-			long y = scan.nextInt();
-			y--;
-			while(!s) {
-				if(x>y) {
-					x += system-1;
-					count++;
-				}
-				long []a = {x+system-1, x+system, x+system+1};
-				for(int j=0; j<a.length; j++) {
-					if(y == a[j]) {
-						count++;
-						s=true;
-					}
-				}
-				if(!s&&x<y) {
-					x += ++system;
-					count++;
-				}
+		for (int i = 0; i < num; i++) {
+			int x = scan.nextInt();
+			int y = scan.nextInt();
+			int dist = y - x;
+
+			int n = (int)Math.ceil(Math.sqrt(dist));
+			int maxDist =(int)Math.pow(Math.ceil(Math.sqrt(dist)),2);
+			int maxNum = n*2 -1 ;
+			int numberOfTimes = maxNum ;
+
+			if(dist <= maxDist-n) {
+				numberOfTimes = maxNum-1;
 			}
-			l.add(++count);
+			result[i] = numberOfTimes;
 		}
-		for(Integer z : l) 
-			System.out.println(z);
+		for(int res : result) {
+			System.out.println(res);
+		}
 	}
 }
