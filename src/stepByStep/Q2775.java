@@ -26,12 +26,10 @@ public class Q2775 {
 				}
 				sum = 0;
 				a=temp;
-				
 			}
 			list.add(a[n-1]);
 		}
 		for(int m : list)
 			System.out.println(m);
 	}
-
 }
