@@ -1,3 +1,5 @@
+package stepByStep;
+
 import java.util.Scanner;
 
 public class Q6064 {
