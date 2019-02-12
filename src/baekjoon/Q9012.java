@@ -23,7 +23,7 @@ public class Q9012 {
 				}
 			}
 			if(!s.empty()||no)
-				System.out.println("No");
+				System.out.println("NO");
 			else
 				System.out.println("YES");
 			
