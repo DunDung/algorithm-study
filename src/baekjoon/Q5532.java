@@ -12,10 +12,23 @@ public class Q5532 {
 		int kday = scan.nextInt();
 		int mday = scan.nextInt();
 		
-		if(korean/kday>math/mday)
-			System.out.println(day-korean/kday);
+		if(korean%kday != 0) {
+			korean /= kday;
+			korean++;
+		}
 		else
-			System.out.println(day-math/mday);
-
+			korean /= kday;
+		if(math%mday != 0) {
+			math /= mday;
+			math++;
+		
+		}
+		else
+			math /= mday;
+		
+		if(day-math<day-korean)
+			System.out.println(day-math);
+		else
+			System.out.println(day-korean);
 	}
 }
