@@ -22,7 +22,7 @@ public class Q1159 {
 				m.put(s.substring(0, 1), 1);
 			else
 				m.replace(s.substring(0, 1), m.get(s.substring(0, 1))+1);
-			if(m.get(s.substring(0, 1))%5==0) {
+			if(m.get(s.substring(0, 1))==5) {
 				list.add(s.substring(0, 1));
 				count++;
 			}
