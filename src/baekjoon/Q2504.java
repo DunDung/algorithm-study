@@ -1,5 +1,6 @@
 package baekjoon;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -11,7 +12,7 @@ public class Q2504 {
 		String s = scan.next();
 		for(int i=0; i<s.length(); i++) {
 			if(s.substring(i,i+1).equals("(")||s.substring(i,i+1).equals("["))
-				stack.push(s.substring(i,i+1));
+				stack.add(s.substring(i,i+1));
 			else if(s.substring(i, i+1).equals(")")) {
 				if(stack.peek().equals("[")) {
 					System.out.println(0);
