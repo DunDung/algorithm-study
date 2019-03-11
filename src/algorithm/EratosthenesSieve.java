@@ -1,8 +1,12 @@
+package algorithm;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Eratos {
+//에라토스테네스의 체
+public class EratosthenesSieve {
+	
 	public static void main(String [] args) {
 		Scanner scan = new Scanner(System.in);
 		List<Boolean> list = new ArrayList<>();
