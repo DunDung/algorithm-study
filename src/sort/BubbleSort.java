@@ -1,4 +1,4 @@
-package algorithm;
+package sort;
 
 import java.util.Arrays;
 
@@ -33,13 +33,30 @@ public class BubbleSort {
 	 				finish = false;
 	 			}
 	 		}
+			if(finish)
+				break;
 	 	}
 	 }
 	 **/
+/**
+	static void bubbleSort(int [] a) {
+		for(int i=a.length-1; i>=1; i--) {
+			boolean finish = true;
+			for(int j=0; j<i; j++) 
+				if(a[j]>a[j+1]) {
+					swap(a, j, j+1);
+					finish = false;
+				}
+			if(finish)
+				break;
+		}
+	}
+ 
+ */
 	public static void main(String[] args) {
 		int [] example = {9, 3, 2, 4, 6, 7, 8, 1, 5};
 		bubbleSort(example);
 		System.out.println(Arrays.toString(example));
 	}
-	
+
 }

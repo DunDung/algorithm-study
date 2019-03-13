@@ -1,4 +1,4 @@
-package algorithm;
+package decimal;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package algorithm;
+package sort;
 
 import java.util.Arrays;
 //삽입정렬
@@ -16,10 +16,9 @@ public class InsertionSort {
 				else
 					break;
 			a[j+1] = value; //j값이 --되면서 for문을 빠져나오기 때문에 j+1
-			
 		}
 	}
-
+	
 	public static void main(String[] args) {
 		int [] example = {9, 3, 2, 4, 6, 7, 8, 1, 5};
 		insertionSort(example);
