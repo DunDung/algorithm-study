@@ -1,4 +1,4 @@
-package etc;
+package math;
 
 //피보나치 수열
 //그냥버전과 동적프로그래밍 버전
