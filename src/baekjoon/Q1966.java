@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 //프린터 큐
 //단계별에서 큐
+//O
 public class Q1966 {
 	static int getMax(Queue<Integer> q) {
 		Iterator<Integer> it = 	q.iterator();
