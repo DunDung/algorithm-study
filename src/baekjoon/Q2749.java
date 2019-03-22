@@ -6,6 +6,7 @@ import java.util.Scanner;
 //피보나치 수를 k=10의 n승이라고 할 때 피사노 주기는15*10의n-1승이다.
 //10의 6승으로 나눈 나머지를 구하라고 했으니 피사노 주기는 1,500,000이다.
 //따라서 입력할 수 있는 최대값이 아무리 커도 1,500,000번째 까지의 10의 6승으로 나는 나머지 값만 알면 그 뒤에는 계산할 필요없다.
+//X
 public class Q2749 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -24,15 +25,12 @@ public class Q2749 {
 				break;
 
 			modArray[i] = modArray[i - 1] + modArray[i - 2]; //피보나치 구하는 법
-			modArray[i] %= 1000000;
+			modArray[i] %= 1000000; //1,000,000으로 나눈 나머지 구하기
 		}
 
-		if(n >= p) {
-			n %= p;
-		}
-
-		System.out.println(modArray[(int)n]);
-
+		if(n >= p) 
+			n %= p; //n % 피사노 주기를 통해 인덱스를 알아낸다.
+		
+		System.out.println(modArray[(int)n]); 
 	}
-
 }
