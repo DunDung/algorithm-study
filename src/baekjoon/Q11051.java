@@ -2,11 +2,8 @@ package baekjoon;
 
 import java.util.Scanner;
 
-//이항 계수1
-//n! / k!*(n-k)! 
-//이항 계수 검색후 풀이
-public class Q11050 {
-	static int [] a = new int [100]; 
+public class Q11051 {
+	static int [] a = new int [1001]; 
 	static int factorial(int n) {
 		if(a[n]!=0)
 			return a[n];
@@ -20,7 +17,7 @@ public class Q11050 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int n = scan.nextInt(), k=scan.nextInt();
-		System.out.println(factorial(n)/(factorial(n-k)*factorial(k)));
+		System.out.println(factorial(n)/factorial(n-k)*factorial(k));
 		scan.close();
 	}
 }
