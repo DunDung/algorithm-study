@@ -2,22 +2,28 @@ package baekjoon;
 
 import java.util.Scanner;
 
+//이항계수2
+//X
+//이항계수 공식을 곧 까먹을것이다.
+//파스칼의 삼각형을 이용한 이항계수구하기
 public class Q11051 {
-	static int [] a = new int [1001]; 
-	static int factorial(int n) {
-		if(a[n]!=0)
-			return a[n];
-		if(n==1||n == 0) //n==1 만 해서 계속 틀렸었음 문제 조건에 k가 0이 될수도 있으니 n==0이 있어야 함!
-			a[n] = 1;
-		else
-			a[n] = n*factorial(n-1);
-		return a[n];
-	}
-
+	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int n = scan.nextInt(), k=scan.nextInt();
-		System.out.println(factorial(n)/factorial(n-k)*factorial(k));
+		int [][] a = new int [1001][1001]; 
+			a[1][0] = 1;
+			a[1][1] = 1;
+			for(int i = 2; i<=n; i++) {
+				for(int j=0; j<=k; j++) {
+					if(i == j || j == 0)
+						a[i][j] = 1;
+					else
+						a[i][j] = a[i-1][j-1] + a[i-1][j]; //이항계수 공식
+					a[i][j] %=10007;
+				}
+			}
+		System.out.println(a[n][k]);	
 		scan.close();
 	}
 }
