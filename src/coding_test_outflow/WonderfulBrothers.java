@@ -3,7 +3,9 @@ package coding_test_outflow;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class baemin {
+//20190328
+//우람한 형제들
+public class WonderfulBrothers {
 	static int[] solution(int money) {
 		int [] a = new int[9];
 		int [] size = {50000, 10000, 5000, 1000, 500, 100, 50, 10, 1};
