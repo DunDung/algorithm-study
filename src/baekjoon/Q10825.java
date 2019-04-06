@@ -14,7 +14,7 @@ public class Q10825 {
 		for(int i=0; i<n; i++)
 			students[i] = new Student(scan.next(), scan.nextInt(), scan.nextInt(), scan.nextInt());
 		
-		Arrays.parallelSort(students);
+		Arrays.sort(students); 
 		
 		for(Student s : students)
 			System.out.println(s.name);
@@ -35,15 +35,16 @@ class Student implements Comparable<Student>{
 		this.english = english;
 		this.math = math;
 	}
+	
 	@Override
 	public int compareTo(Student o) {
-		int r = (this.korean - o.korean) *-1;
+		int r = (this.korean - o.korean) * -1; //내림차순
 		if(r==0)
-			r = this.english - o.english;
+			r = this.english - o.english; //오름차순
 		if(r==0)
-			r = (this.math - o.math)*-1;
+			r = (this.math - o.math) * -1; //내림차순
 		if(r==0)
-			r = this.name.compareTo(o.name);
+			r = this.name.compareTo(o.name); //오름차순
 		return r;
 	}
 }
