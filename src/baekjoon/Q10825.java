@@ -18,8 +18,17 @@ public class Q10825 {
 		
 		for(Student s : students)
 			System.out.println(s.name);
-		
+
 		scan.close();
+//		Set<Student> set  = new TreeSet<>(); //SortedSet을 이용한 풀이
+//		
+//		for(int i=0; i<n; i++) 
+//			set.add(new Student(scan.next(), scan.nextInt(), scan.nextInt(), scan.nextInt()));
+//		
+//		Iterator<Student> it  = set.iterator();
+//		
+//		while(it.hasNext())
+//			System.out.println(it.next().name);
 	}
 }
 
