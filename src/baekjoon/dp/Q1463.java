@@ -1,4 +1,4 @@
-package dp;
+package baekjoon.dp;
 import java.util.Scanner;
 
 //1로만들기
