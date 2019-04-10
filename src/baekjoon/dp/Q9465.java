@@ -30,10 +30,7 @@ public class Q9465 {
 				dp[i][2] = Math.max(dp[i-1][0], dp[i-1][1])+a[1][i];
 			}
 					
-			int max = Math.max(dp[n][0], Math.max(dp[n][1], dp[n][2]));
-			System.out.println(Arrays.deepToString(a));
-			System.out.println(Arrays.deepToString(dp));
-			System.out.println(max);
+			System.out.println(Math.max(dp[n][0], Math.max(dp[n][1], dp[n][2])));
 		}
 	}
 
