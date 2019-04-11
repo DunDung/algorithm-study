@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.star_print;
 
 import java.util.Scanner;
 
