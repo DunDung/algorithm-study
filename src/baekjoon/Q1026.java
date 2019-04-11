@@ -33,13 +33,13 @@ public class Q1026 {
 		for(int i=0; i<n; i++)
 			a[i] = scan.nextInt();
 		for(int i=0; i<n; i++)
-			b[i] = scan.nextInt();
+			b[i] = scan.nextInt()*-1;
 
-		bubbleSort(a);
+		Arrays.parallelSort(a);
 		Arrays.parallelSort(b);
 		
 		for(int i=0; i<n; i++)
-			sum += a[i]*b[i];
+			sum += a[i]*(b[i]*-1);
 
 		System.out.println(sum);
 		scan.close();
