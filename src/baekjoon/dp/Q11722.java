@@ -3,9 +3,9 @@ package baekjoon.dp;
 import java.util.Arrays;
 import java.util.Scanner;
 
-//가장 긴 증가하는 부분 수열
-//X
-public class Q11053 {
+//가장 긴 감소하는 부분 수열
+//O, 관련문제 풀고푼거라..
+public class Q11722 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -19,8 +19,8 @@ public class Q11053 {
 		for(int i = 0; i<n; i++) {
 			dp[i] = 1;
 			for(int j=0; j<i; j++)
-				if(a[i]>a[j] && dp[i]<=dp[j]) 
-					dp[i] = dp[j]+1;
+				if(a[i]<a[j] && dp[i] < dp[j]+1) 
+					dp[i]++;
 		}
 		Arrays.sort(dp);
 		

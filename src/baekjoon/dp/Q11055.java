@@ -3,9 +3,9 @@ package baekjoon.dp;
 import java.util.Arrays;
 import java.util.Scanner;
 
-//가장 긴 증가하는 부분 수열
+//가장 큰 증가 부분 수열
 //X
-public class Q11053 {
+public class Q11055 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -17,10 +17,10 @@ public class Q11053 {
 			a[i] = scan.nextInt();
 		
 		for(int i = 0; i<n; i++) {
-			dp[i] = 1;
+			dp[i] = a[i];
 			for(int j=0; j<i; j++)
-				if(a[i]>a[j] && dp[i]<=dp[j]) 
-					dp[i] = dp[j]+1;
+				if(a[i]>a[j] && dp[i] < dp[j]+a[i]) 
+					dp[i]=dp[j]+a[i];
 		}
 		Arrays.sort(dp);
 		
