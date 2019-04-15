@@ -5,12 +5,14 @@ import java.util.Arrays;
 //계속 나누면서 합치고, 합치면서 정렬하는 방식
 public class MergeSort {
 	static void mergeSort(int [] a, int start, int end) {
+		System.out.println("ms("+start+", "+end+")");	
 		if(start>=end)
 			return;
 		int middle = (start+end)/2;
 		mergeSort(a, start, middle);
 		mergeSort(a, middle+1, end);
 		merge(a, start, middle, end);
+		System.out.println(Arrays.toString(a));
 	}
 	
 	static void merge(int [] a, int start, int middle, int end) {
@@ -35,7 +37,7 @@ public class MergeSort {
 			a[start+i] = temp[i];
 	}
 	public static void main(String[] args) {
-		int [] example = {9, 3, 2, 4, 6, 7, 8, 1, 5};
+		int [] example = {9, 7, 6, 8, 3};
 		mergeSort(example, 0, example.length-1);
 		System.out.println(Arrays.toString(example));
 	}
