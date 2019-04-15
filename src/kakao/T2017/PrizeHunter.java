@@ -14,19 +14,15 @@ public class PrizeHunter {
 			int sum = 0;
 			int a = scan.nextInt();
 			int b = scan.nextInt();
-			if(a>21||a==0) {
+			if(a>21||a==0) 
 				sum+=0;
-			}
-			else { 
+			else 
 				sum+=arr1[a-1];
-			}
 			
-			if(b>31||b==0) {
+			if(b>31||b==0) 
 				sum+=0;
-			}
-			else { 
+			else 
 				sum+=arr2[b-1];
-			}
 			System.out.println(Integer.parseInt(String.valueOf(sum)+"0000"));
 		}
 	}
