@@ -1,9 +1,10 @@
-package baekjoon;
+package baekjoon.math;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//°ñµå¹ÙÈåÀÇ ÃßÃø
 public class Q9020 {
 
 	public static void main(String[] args) {
