@@ -13,11 +13,14 @@ public class HeapSort {
 	}
 	static void buildHeap(int [] a) {
 		int end = a.length-1;
-		for(int i = end/2; i>=0; i--) 
+		for(int i = end/2; i>=0; i--) {
 			heapify(a, i, end);
+		}
 			
 	}
 	static void heapify(int [] a, int k, int end) {
+//		System.out.println("heapify("+k+" "+end+")");
+//		System.out.println(Arrays.toString(a));
 		int left = 2*k+1, right = 2*k+2;
 		int biger;
 		if(right <= end)
@@ -32,13 +35,14 @@ public class HeapSort {
 	static void heapSort(int [] a) {
 		buildHeap(a);
 		for(int end = a.length-1; end>=1; --end) {
+			System.out.println(Arrays.toString(a));
 			swap(a, 0 ,end);
 			heapify(a,0,end-1);
 		}
 	}
 
 	public static void main(String[] args) {
-		int [] example = {9, 3, 2, 4, 6, 7, 8, 1, 5};
+		int [] example = {8,3,6,1,4,2};
 		heapSort(example);
 		System.out.println(Arrays.toString(example));
 	}

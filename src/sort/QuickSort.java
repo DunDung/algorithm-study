@@ -33,13 +33,16 @@ public class QuickSort {
 	}
 */	
 	static void quickSort(int [] a , int start, int end) {
+		System.out.println("qs("+start+", "+end+")");
 		if(start>=end) return;
 		int middle = partition(a, start, end);
+		System.out.println(middle);
+		System.out.println(Arrays.toString(a));
 		quickSort(a, start, middle-1);
 		quickSort(a, middle+1, end);
 	}
 	public static void main(String[] args) {
-		int [] example = {9, 3, 2, 4, 6, 7, 8, 1, 5};
+		int [] example = {9, 7, 6, 8, 3, 4};
 		quickSort(example, 0, example.length-1);
 		System.out.println(Arrays.toString(example));
 	}

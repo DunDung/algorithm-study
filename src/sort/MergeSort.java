@@ -37,7 +37,7 @@ public class MergeSort {
 			a[start+i] = temp[i];
 	}
 	public static void main(String[] args) {
-		int [] example = {9, 7, 6, 8, 3};
+		int [] example = {9, 7, 6, 8, 3, 4};
 		mergeSort(example, 0, example.length-1);
 		System.out.println(Arrays.toString(example));
 	}
