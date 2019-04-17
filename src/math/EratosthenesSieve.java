@@ -24,7 +24,7 @@ public class EratosthenesSieve {
 		//2부터 ~ i*i <= n 각각의 배수들을 지워간다.
 		for(int i=2; (i*i)<=n; i++)
 			if(list.get(i))
-				for(int j=i*i; j<=n; j+=i)
+				for(int j=i*i; j<=n; j+=i) 
 					list.set(j, false);
 		
 		for(int i=2; i<=n; i++)
