@@ -1,4 +1,4 @@
-package searchTree;
+package searchTree.RedBlackTree;
 
 import java.awt.*;
 import java.awt.event.*;

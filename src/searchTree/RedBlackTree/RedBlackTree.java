@@ -1,4 +1,4 @@
-package searchTree;
+package searchTree.RedBlackTree;
 
 import java.util.ArrayList;
 import java.util.List;
