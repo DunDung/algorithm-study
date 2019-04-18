@@ -2,6 +2,7 @@ package baekjoon;
 
 import java.util.Scanner;
 
+//¼¶ÀÇ Áöµµ
 public class Q4963 {
 
 	static void dfs(int[][] a, boolean [][]b) {

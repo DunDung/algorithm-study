@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.sort;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
+//단어 정렬
 public class Q1181 {
 
 	public static void main(String[] args) {

@@ -1,27 +1,10 @@
-package baekjoon;
+package baekjoon.sort;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
+//º¸¹°
 public class Q1026 {
-//	static void swap(int []a, int i, int j) {
-//		int temp = a[i];
-//		a[i] = a[j];
-//		a[j] = temp;
-//	}
-//	static void bubbleSort(int [] a) {
-//		for(int i=a.length-1; i>=1; i--) {
-//			boolean finish = true;
-//			for(int j=0; j<i; j++) {
-//				if(a[j]<a[j+1]) {
-//					swap(a, j, j+1);
-//					finish=false;
-//				}	
-//			}
-//			if(finish)
-//				break;
-//		}
-//	}
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
