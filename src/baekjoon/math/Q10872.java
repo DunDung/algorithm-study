@@ -1,7 +1,8 @@
-package baekjoon;
+package baekjoon.math;
 
 import java.util.Scanner;
 
+//ÆÑÅä¸®¾ó
 public class Q10872 {
 	static int factorial(int n) {
 		if(n<=1) return 1;
