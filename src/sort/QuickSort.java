@@ -14,24 +14,14 @@ public class QuickSort {
 	static int partition(int [] a, int start, int end) {
 		int value = a[end];
 		int i = start -1;
-		for(int j = start; j<=end-1; ++j)
+		for(int j = start; j<=end-1; ++j) {
 			if(a[j]<value)
 				swap(a, ++i, j);
+		}
 		swap(a, i+1, end);
 		return i+1;
 	}
-/*	
-	static int partition2(int[]a, int start, int end) {
-		int value = a[end];
-		int i = start -1;
-		
-		for(int j = start; j<=end-1; j++)
-			if(a[j] < value)
-				swap(a, ++i, j);
-		swap(a, i+1, end);
-		return i+1;
-	}
-*/	
+
 	static void quickSort(int [] a , int start, int end) {
 		System.out.println("qs("+start+", "+end+")");
 		if(start>=end) return;

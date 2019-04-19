@@ -35,7 +35,6 @@ public class HeapSort {
 	static void heapSort(int [] a) {
 		buildHeap(a);
 		for(int end = a.length-1; end>=1; --end) {
-			System.out.println(Arrays.toString(a));
 			swap(a, 0 ,end);
 			heapify(a,0,end-1);
 		}

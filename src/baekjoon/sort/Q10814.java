@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 //나이순 정렬
+//X
+//compareTo가 런타임에러를..왜?  -> 코드에 오타있었음..하
 public class Q10814 {
 
 	public static void main(String[] args) throws IOException{
@@ -36,13 +38,13 @@ class Person implements Comparable<Person>{
 	int id;
 	int age;
 	String name;
-	
 	@Override
-	public int compareTo(Person o) {
-		int r = this.age - o.age;
+    public int compareTo(Person that) {
+		int r = this.age - that.age;
 		if(r==0)
-			r = this.id = o.id;
+			r = this.id-that.id;
 		return r;
 	}
-	
 }
+
+	
