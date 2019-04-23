@@ -1,7 +1,8 @@
-package baekjoon;
+package baekjoon.graph;
 
 import java.util.Scanner;
 
+//°áÈ¥½Ä
 public class Q5567 {
 
 	public static void main(String[] args) {
