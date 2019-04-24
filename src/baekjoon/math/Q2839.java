@@ -2,13 +2,13 @@ package baekjoon.math;
 
 import java.util.Scanner;
 
+//¼³ÅÁ¹è´Þ
 public class Q2839 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int n = scan.nextInt();
-		if(n >= 3 && n<=5000)
-			System.out.println(sugarDelivery(n));
+		System.out.println(sugarDelivery(n));
 
 	}
 	public static int sugarDelivery(int n) {
