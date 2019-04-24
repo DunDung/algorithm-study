@@ -2,6 +2,8 @@ package baekjoon;
 
 import java.util.Scanner;
 
+//분수찾기
+//X
 public class Q1193 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
