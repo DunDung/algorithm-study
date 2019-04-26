@@ -1,6 +1,5 @@
 package baekjoon.graph;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -18,17 +17,17 @@ public class Q2146 {
 		int[][] a = new int[n][n]; //입력받은 배열
 		int[][] d = new int[n][n]; //거리
 		int[][] g = new int[n][n]; //섬 그룹
-		
-		for (int i=0; i<n; i++) 
+
+		for (int i=0; i<n; i++) //입력 받기
 			for (int j=0; j<n; j++) 
 				a[i][j] = scan.nextInt();
 
-		int cnt = 0;
+		int cnt = 0; //섬을 표시할 변수
 		for (int i=0; i<n; i++) {
 			for (int j=0; j<n; j++) {
-				if (a[i][j] == 1 && g[i][j] == 0) {
+				if (a[i][j] == 1 && g[i][j] == 0) { //a가 1이고 g를 초기화 안했다면
 					Queue<Dot> q = new LinkedList<Dot>();
-					g[i][j] = ++cnt;
+					g[i][j] = ++cnt; //g를 초기화
 					q.add(new Dot(i, j));
 					while (!q.isEmpty()) {
 						Dot p = q.remove();
@@ -37,27 +36,28 @@ public class Q2146 {
 						for (int k=0; k<4; k++) {
 							int nx = x+dx[k];
 							int ny = y+dy[k];
-							if (0 <= nx && nx < n && 0 <= ny && ny < n) {
+							if (0 <= nx && nx < n && 0 <= ny && ny < n) 
 								if (a[nx][ny] == 1 && g[nx][ny] == 0) {
 									q.add(new Dot(nx, ny));
-									g[nx][ny] = cnt;
+									g[nx][ny] = cnt; //while문 안에서 돌기때문에 인접한 다른 곳들도 1이면 같은 숫자로 초기화 
 								}
-							}
 						}
 					}
 				}
 			}
 		}
-		Queue<Dot> q = new LinkedList<Dot>();
+		
+		Queue<Dot> q = new LinkedList<Dot>(); //큐 재생성
 		for (int i=0; i<n; i++) {
 			for (int j=0; j<n; j++) {
-				d[i][j] = -1;
-				if (a[i][j] == 1) {
-					q.add(new Dot(i,j));
-					d[i][j] = 0;
+				d[i][j] = -1; //d에 우선 -1넣어둔다.
+				if (a[i][j] == 1) { 
+					q.add(new Dot(i,j)); //1인곳을 q에 넣어주고
+					d[i][j] = 0; //섬을 0으로 표시
 				}
 			}
 		}
+
 		while (!q.isEmpty()) {
 			Dot p = q.remove();
 			int x = p.x;
@@ -65,51 +65,29 @@ public class Q2146 {
 			for (int k=0; k<4; k++) {
 				int nx = x+dx[k];
 				int ny = y+dy[k];
-				if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-					if (d[nx][ny] == -1) {
-						d[nx][ny] = d[x][y] + 1;
-						g[nx][ny] = g[x][y];
-						q.add(new Dot(nx,ny));
+				if (0 <= nx && nx < n && 0 <= ny && ny < n) 
+					if (d[nx][ny] == -1) { //섬이 아닌곳이면
+						d[nx][ny] = d[x][y] + 1; //거리를 1증가
+						g[nx][ny] = g[x][y]; //섬의 영역도 섬을 표시한 같은 숫자로 확장시킨다. 
+						q.add(new Dot(nx,ny)); //bfs
 					}
-				}
 			}
 		}
-		int ans = -1;
+
+		int ans = -1; 
 		for (int i=0; i<n; i++) {
 			for (int j=0; j<n; j++) {
 				for (int k=0; k<4; k++) {
 					int x = i+dx[k];
 					int y = j+dy[k];
-					if (0 <= x && x < n && 0 <= y && y < n) {
-						if (g[i][j] != g[x][y]) {
-							if (ans == -1 || ans > d[i][j] + d[x][y]) {
+					if (0 <= x && x < n && 0 <= y && y < n) 
+						if (g[i][j] != g[x][y])  //인접한 섬의 영역이 다를 때
+							if (ans == -1 || ans > d[i][j] + d[x][y])  //인접한거리+현재거리 최소값 찾기
 								ans = d[i][j] + d[x][y];
-							}
-						}
-					}
 				}
 			}
 		}
-		for (int i=0; i<n; i++) {
-			for (int j=0; j<n; j++) {
-				System.out.println(g[i][j]+" ");
-			}
-			System.out.println();
-		}
-		for (int i=0; i<n; i++) {
-			for (int j=0; j<n; j++) {
-				System.out.print(g[i][j]+" ");
-			}
-			System.out.println();
-		}
-		for (int i=0; i<n; i++) {
-			for (int j=0; j<n; j++) {
-				System.out.print(d[i][j]+" ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-		
+
 		System.out.println(ans);
 	}
 }
