@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+//¹«½¼ Å©·¡ÇÁÆ®
 public class Q1005 {
 
 	 static int n;   // ³ëµå °¹¼ö
