@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-//무슨 크래프트
+//ACM 크래프트
 public class Q1005 {
 
 	 static int n;   // 노드 갯수
