@@ -45,7 +45,6 @@ public class Q1913 {
 				if(a[i][j] == target) {
 					tx = i+1;
 					ty = j+1;
-
 				}
 				System.out.print(a[i][j]+" ");
 			}			

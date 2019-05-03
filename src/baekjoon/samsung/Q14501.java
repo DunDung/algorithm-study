@@ -1,4 +1,4 @@
-package baekjoon.dp;
+package baekjoon.samsung;
 
 import java.util.Arrays;
 import java.util.Scanner;
