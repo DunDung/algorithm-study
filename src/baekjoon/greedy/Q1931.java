@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 //회의실배정
 //일찍 끝나는 순으로 찾아라.
+//X
 public class Q1931 {
 
 	public static void main(String[] args) {

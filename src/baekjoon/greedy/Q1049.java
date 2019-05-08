@@ -1,4 +1,4 @@
-package baekjoon.implementation;
+package baekjoon.greedy;
 
 import java.util.ArrayList;
 import java.util.Collections;
