@@ -16,7 +16,7 @@ public class Q1541 {
 		List<Integer> list = new ArrayList<>();
 
 		String k = "";
-		sign.add(1);
+		sign.add(1); //처음엔 플러스를 넣어준다.
 		for(int i=0; i<s.length(); i++) {
 			if(s.charAt(i)=='+'||s.charAt(i)=='-') {
 				if(s.charAt(i)=='+')
@@ -24,14 +24,13 @@ public class Q1541 {
 				else if(s.charAt(i)=='-')
 					sign.add(-1);
 				list.add(Integer.parseInt(k));
-				System.out.println(k);
 				k = "";
 			} else {
 				k += s.substring(i,i+1);
 			}
 		}
 		
-		list.add(Integer.parseInt(k));
+		list.add(Integer.parseInt(k)); //마지막 수를 저장
 		int ans = 0;
 		boolean minus = false;
 		for(int i=0; i<list.size(); i++) {

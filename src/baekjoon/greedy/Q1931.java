@@ -48,5 +48,4 @@ class Conference implements Comparable<Conference> {
 			r = this.start - o.start;
 		return r;
 	}
-	
 }
