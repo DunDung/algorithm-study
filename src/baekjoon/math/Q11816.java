@@ -2,6 +2,7 @@ package baekjoon.math;
 
 import java.util.Scanner;
 
+//8진수, 10진수 16진수
 public class Q11816 {
 
 	public static void main(String[] args) {
