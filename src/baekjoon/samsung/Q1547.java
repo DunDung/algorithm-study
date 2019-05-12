@@ -1,6 +1,5 @@
 package baekjoon.samsung;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 //°ø
@@ -27,7 +26,6 @@ public class Q1547 {
 			int a = scan.nextInt();
 			int b = scan.nextInt();
 			swap(arr, a, b);
-			System.out.println(Arrays.toString(arr));
 		}
 		System.out.println(arr[0]);
 
