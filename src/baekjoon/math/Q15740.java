@@ -1,5 +1,15 @@
 package baekjoon.math;
 
-public class Q15740 {
+import java.math.BigInteger;
+import java.util.Scanner;
 
+//A+B -9
+public class Q15740 {
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		BigInteger a = scan.nextBigInteger();
+		BigInteger b = scan.nextBigInteger();
+		System.out.println(a.add(b));
+	}
 }
