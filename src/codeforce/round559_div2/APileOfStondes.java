@@ -1,7 +1,8 @@
-package codeforce;
+package codeforce.round559_div2;
 
 import java.util.Scanner;
 
+//¼º°ø
 public class APileOfStondes {
 
 	public static void main(String[] args) {

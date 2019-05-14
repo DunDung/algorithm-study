@@ -1,6 +1,5 @@
 package baekjoon.dp;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 //가장 긴 바이토닉 부분 수열

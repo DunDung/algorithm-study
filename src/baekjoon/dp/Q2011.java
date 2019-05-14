@@ -3,6 +3,7 @@ package baekjoon.dp;
 import java.util.Scanner;
 
 //암호코드
+//복습 후 글써라 5.14
 //X
 public class Q2011 {
 	public static int mod = 1000000;
