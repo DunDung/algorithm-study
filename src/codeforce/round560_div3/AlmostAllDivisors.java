@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+//½ÇÆÐ
 public class AlmostAllDivisors {
 
 	public static void main(String[] args) {

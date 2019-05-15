@@ -2,6 +2,7 @@ package codeforce.round560_div3;
 
 import java.util.Scanner;
 
+//½ÇÆÐ
 public class Remainder {
 
 	public static void main(String[] args) {

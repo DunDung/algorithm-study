@@ -1,10 +1,9 @@
-package baekjoon.implementation;
+package baekjoon.bruteforce;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 //방 배정하기
+//X
 public class Q14697 {
 
 	public static void main(String[] args) {
