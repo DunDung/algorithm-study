@@ -1,6 +1,5 @@
 package codeforce.educational_round65_div2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class LostNumbers {
