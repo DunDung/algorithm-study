@@ -3,7 +3,7 @@ package baekjoon.star_print;
 import java.util.Arrays;
 import java.util.Scanner;
 
-//º° Âï±â -11
+//º° Âï±â -10
 //X
 public class Q2447 {
 	static char[][] starMap;
