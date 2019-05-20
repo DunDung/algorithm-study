@@ -11,18 +11,17 @@ public class Q2263 {
 	
 	static void solve(int is, int ie, int ps, int pe) {
 		if(is>ie || ps>pe) return ;
-		int root = postOrder[pe];
+		int root = postOrder[pe]; //포스트오더의 맨 끝이 루트
 		System.out.print(root+" ");
-		int p = position[root];
-		int left = p-is;
-		solve(is, p-1, ps, ps+left-1);
-		solve(p+1, ie, ps+left, pe-1);
+		int inRoot = position[root]; //인오더의 루트 인덱스
+		int left = inRoot-is; //포스트오더의 왼쪽 자식의 수
+		solve(is, inRoot-1, ps, ps+left-1);
+		solve(inRoot+1, ie, ps+left, pe-1);
 	}
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int n = scan.nextInt();
-		
+		int n = scan.nextInt();	
 		
 		for(int i=0; i<n; i++)
 			inOrder[i] = scan.nextInt();
