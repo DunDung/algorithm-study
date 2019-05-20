@@ -2,12 +2,13 @@ package baekjoon.star_print;
 
 import java.util.Scanner;
 
+//º° Âï±â -11
+//X
 public class Q2448 {
      
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.close();
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
          
         String map[] = new String[n];
         map[0] = "  *  ";
