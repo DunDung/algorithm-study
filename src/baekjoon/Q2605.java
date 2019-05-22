@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//줄세우기
 public class Q2605 {
 
 	public static void main(String[] args) {
