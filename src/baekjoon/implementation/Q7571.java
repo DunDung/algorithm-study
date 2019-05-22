@@ -38,5 +38,7 @@ public class Q7571 {
 		
 		System.out.println(ans);
 	}
+	
+	
 }
 
