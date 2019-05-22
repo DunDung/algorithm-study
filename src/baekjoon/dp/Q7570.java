@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 //줄 세우기
 //연속적으로 증가하는 긴 증가수열 구하기
-
+//X
 public class Q7570 {
 
 	public static void main(String[] args) {
@@ -20,7 +20,5 @@ public class Q7570 {
 		
 		Arrays.sort(dp);
 		System.out.println(n-dp[n]);
-		
 	}
-
 }
