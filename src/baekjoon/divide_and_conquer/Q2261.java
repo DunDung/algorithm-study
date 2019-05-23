@@ -51,13 +51,16 @@ public class Q2261 {
 		Collections.sort(b, new PointComparator()); //y좌표순으로 정렬
 		int m = b.size(); 
 		for(int i=0; i<m-1; i++) {
-			if(i+1<m) {
-				int k = b.get(i+1).y - b.get(i).y;
+			for(int j=i+1; j<m; j++) {
+				int k = b.get(j).y - b.get(i).y;
 				if(k*k < ans) {
-					int d = dist(b.get(i), b.get(i+1));
+					int d = dist(b.get(i), b.get(j));
 					if(d < ans) {
 						ans = d;
 					}
+				}
+				else { //y좌표 순으로 정렬했기 때문에 앞의 가장 가까운 점이 ans보다 크면 더 볼필요가 없다.
+					break;
 				}
 			}
 		}
