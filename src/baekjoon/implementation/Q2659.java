@@ -17,7 +17,7 @@ public class Q2659 {
 		Arrays.sort(k);
 		return k;
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String [] s = new String[4];
@@ -53,20 +53,21 @@ public class Q2659 {
 			}
 		}
 		s = possible(s);
-		
+
 		Iterator<String> it = o.iterator();
-		for(int i=0; i<4; i++) {
-			if(o.contains(s[i])){
-				int cnt = 1;
-				while(it.hasNext()) {
-					if(it.next().equals(s[i])) {
-						System.out.println(cnt);
-						break;
+		loop:
+			for(int i=0; i<4; i++) {
+				if(o.contains(s[i])){
+					int cnt = 1;
+					while(it.hasNext()) {
+						if(it.next().equals(s[i])) {
+							System.out.println(cnt);
+							break loop;
+						}
+						else
+							cnt++;
 					}
-					else
-						cnt++;
 				}
 			}
-		}
 	}
 }
