@@ -5,16 +5,17 @@ import java.util.List;
 import java.util.Scanner;
 
 //중량제한
+//X
 public class Q1939 {
 
-	static boolean check(List<A>[] a, int limit, int start, int end, boolean [] b) {
+	static boolean check(List<Weight>[] a, int limit, int start, int end, boolean [] b) {
 		if(b[start])
 			return false;
 		b[start] = true;
 		if(start == end)
 			return true;
-		for(A v : a[start]) {
-			if(v.g >= limit) {
+		for(Weight v : a[start]) {
+			if(v.g >= limit) {  //입력받은 중량으로 이동할 수 있는지 체크
 				//return check(a, limit, v.v, end, b) 
 				//이렇게 하면 check가 false 한번이라도 되면 for문이 끝나버린다. 헤맨 부분
 				if(check(a, limit, v.v, end, b)){ //if문으로 해야 for문이 끝나지 않고 계속 돈다.
