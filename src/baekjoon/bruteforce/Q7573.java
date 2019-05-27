@@ -29,6 +29,7 @@ public class Q7573 {
 					gPos.add(new Pos(i, j));
 			}
 		}
+		½ÇÆÐ
 		int ans = 0;
 		for(int i=0; i<fPos.size(); i++) {
 			for(int j=0; j<gPos.size(); j++) {
