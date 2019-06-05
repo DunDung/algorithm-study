@@ -1,35 +1,46 @@
 package baekjoon.bruteforce;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 //·Î¶Ç	
 public class Q6603 {
-
+	public static boolean nextPermutation(int [] a) {
+		
+	}
 	public static void main(String[] args) {
+		Scanner scan  = new Scanner(System.in);
 		while (true) {
-	        int n;
-	        cin >> n;
+	        int n = scan.nextInt();
 	        if (n == 0) {
 	            break;
 	        }
-	        vector<int> a(n);
+	      //  vector<int> a(n);
+	        int []a = new int[n];
 	        for (int i=0; i<n; i++) {
-	            cin >> a[i];
+	        	a[i] = scan.nextInt();
 	        }
-	        vector<int> d;
+//	        vector<int> d;
+	        List<Integer> d = new ArrayList<>();
 	        for (int i=0; i<n-6; i++) {
-	            d.push_back(0);
+	            d.add(0);
 	        }
 	        for (int i=0; i<6; i++) {
-	            d.push_back(1);
+	        	d.add(1);
 	        }
-	        vector<vector<int>> ans;
+	       // vector<vector<int>> ans;
+	        List<List<Integer>> ans = new ArrayList<>();
 	        do {
-	            vector<int> current;
+	        	List<Integer> current = new ArrayList<>();
+//	            vector<int> current;
 	            for (int i=0; i<n; i++) {
-	                if (d[i] == 1) {
-	                    current.push_back(a[i]);
+	                if (d.get(i) == 1) {
+	                    current.add(a[i]);
 	                }
 	            }
-	            ans.push_back(current);
+	           // ans.push_back(current);
+	            ans.add(current);
 	        } while (next_permutation(d.begin(), d.end()));
 	        sort(ans.begin(), ans.end());
 	        for (auto &v : ans) {
