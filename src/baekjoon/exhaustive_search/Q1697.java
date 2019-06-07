@@ -1,4 +1,4 @@
-package baekjoon.graph;
+package baekjoon.exhaustive_search;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -21,8 +21,7 @@ public class Q1697 {
 			bx[1] = n-1;
 			bx[2] = n*2;
 			for(int i=0; i<3; i++) {
-				System.out.println(bx[i]);
-				if(bx[i]>=0 && bx[i]<100 && a[bx[i]] == -1 ) {
+				if(bx[i]>=0 && bx[i]<100001 && a[bx[i]] == -1 ) {
 					a[bx[i]] = a[n]+1;
 					q.add(bx[i]);
 				}
