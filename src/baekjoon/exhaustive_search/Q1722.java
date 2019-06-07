@@ -1,4 +1,4 @@
-package baekjoon.bruteforce;
+package baekjoon.exhaustive_search;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package baekjoon.bruteforce;
+package baekjoon.exhaustive_search;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class Q6603 {
 		a.set(j, temp);
 	}
 
-	public static boolean nextPermutation(List<Integer> a) {
+	public static boolean nextPermutation(List<Integer> a) { //다음 순열 구하기
 		int i = a.size()-1;
 		while(i > 0 && a.get(i) <= a.get(i-1))
 			i--;
@@ -47,16 +47,16 @@ public class Q6603 {
 			for (int i=0; i<n; i++) {
 				a[i] = scan.nextInt();
 			}
-			List<Integer> d = new ArrayList<>();
+			List<Integer> d = new ArrayList<>(); //순열 배열
 			for (int i=0; i<n-6; i++) {
 				d.add(0);
 			}
 			for (int i=0; i<6; i++) {
 				d.add(1);
 			}
-			List<List<Integer>> ans = new ArrayList<>();
+			List<List<Integer>> ans = new ArrayList<>(); //정답 배열
 			do {
-				List<Integer> current = new ArrayList<>();
+				List<Integer> current = new ArrayList<>(); //임시 배열
 				for (int i=0; i<n; i++) {
 					if (d.get(i) == 1) {
 						current.add(a[i]);
@@ -64,6 +64,7 @@ public class Q6603 {
 				}
 				ans.add(current);
 			} while (nextPermutation(d));
+			
 			ans.sort((x, y) -> { //List<List<Integer> 를 람다식으로 compareTo를 재정의 후 정렬
 				int r = 0;
 				for(int i=0; i<ans.size(); i++) {
