@@ -4,16 +4,16 @@ import java.util.Scanner;
 
 //1 2 3더하기
 //백트레킹 사용
+//X
 public class Q9095_ver2 {
-	static int go(int cnt, int sum, int goal) {
-		System.out.println(cnt+" "+sum);
-		if(sum > goal)
+	static int go(int sum, int n) {
+		if(sum > n)
 			return 0;
-		if(sum == goal)
+		if(sum == n)
 			return 1;
 		int now = 0;
 		for(int i=1; i<=3; i++) {
-			now += go(cnt+1, sum+i, goal);
+			now += go(sum+i, n);
 		}
 		return now;
 	}
@@ -24,8 +24,7 @@ public class Q9095_ver2 {
 		
 		while(tc-- > 0) {
 			int n = scan.nextInt();
-			System.out.println(go(0, 0, n));
+			System.out.println(go(0, n));
 		}
 	}
-
 }
