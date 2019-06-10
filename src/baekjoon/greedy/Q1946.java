@@ -3,11 +3,10 @@ package baekjoon.greedy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.StringTokenizer;
 
+//신입사원
+//X
 public class Q1946 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -25,16 +24,15 @@ public class Q1946 {
 				a[x] = y;
 			}
 			
-			int cnt = 1;
-			int standard = a[1];
+			int cnt = 1; //x가 1일때는 무조건 가능하므로 1로 시작
+			int standard = a[1]; //기준 값, 처음에는 x가 1일 때의 y값
 			for(int i=2; i<=n; i++) {
-				if(standard > a[i]) {
-					cnt++;
-					standard = a[i];
+				if(standard > a[i]) { //기준 값보다 a[i]의 y값이 작다면 
+					cnt++; //추가
+					standard = a[i]; //기준 값 a[i]의 y값으로 변경
 				}
 			}
 			System.out.println(cnt);
-
 		}
 	}
 }
