@@ -20,8 +20,8 @@ public class Q1759 {
     }
 	
 	public static void go(int n, String [] alpha, String password, int i) {
-		if(password.length() == n) {
-			if(check(password)) {
+		if(password.length() == n) { 
+			if(check(password)) { //모음 자음 개수 검사
 				System.out.println(password);
 			}
 			return;
@@ -29,8 +29,8 @@ public class Q1759 {
 		if(alpha.length <= i) 
 			return;
 		
-		go(n, alpha, password+alpha[i], i+1);
-		go(n, alpha, password, i+1);
+		go(n, alpha, password+alpha[i], i+1); //사용하는 경우
+		go(n, alpha, password, i+1); //사용하지 않는 경우
 	}
 
 	public static void main(String[] args) {
@@ -41,7 +41,6 @@ public class Q1759 {
 		String [] alpha = scan.nextLine().split(" ");
 		
 		Arrays.sort(alpha);
-		System.out.println(Arrays.toString(alpha));
 		go(n, alpha, "", 0);
 	}
 }
