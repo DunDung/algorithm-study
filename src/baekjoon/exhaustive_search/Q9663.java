@@ -6,8 +6,8 @@ import java.util.Scanner;
 //X
 public class Q9663 {
 	static boolean [] checkCol = new boolean[15];
-	static boolean [] checkRightDig = new boolean[40];
-	static boolean [] checkLeftDig = new boolean[40];
+	static boolean [] checkRightDig = new boolean[31];
+	static boolean [] checkLeftDig = new boolean[31];
 	static int n;
 	
 	public static boolean check(int row, int col) {
@@ -36,8 +36,8 @@ public class Q9663 {
 				checkLeftDig[row-col+n] = true;
 				cnt += calc(row+1);
 				checkCol[col] = false;
-				checkLeftDig[row+col] = false;
-				checkRightDig[row-col+n] = false;
+				checkRightDig[row+col] = false;
+				checkLeftDig[row-col+n] = false;
 			}
 		}
 		return cnt;

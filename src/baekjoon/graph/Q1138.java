@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //한 줄로 서기
-//세모
+//X
 public class Q1138 {
 
 	public static void main(String[] args) {
