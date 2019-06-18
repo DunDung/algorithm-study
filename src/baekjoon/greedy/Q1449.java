@@ -1,7 +1,9 @@
 package baekjoon.greedy;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
+//¼ö¸®°ø Ç×½Â
 public class Q1449 {
 
 	public static void main(String[] args) {
@@ -13,14 +15,13 @@ public class Q1449 {
 		for(int i=0; i<n; i++) {
 			a[i] = scan.nextInt();
 		}
+		Arrays.sort(a);
 		int v = k-1;
 		int cnt = 1;
 		for(int i=1; i<n; i++) {
-			
 			if(a[i]-a[i-1] <= v) {
 				v -= a[i]-a[i-1];
-			}
-			else {
+			} else {
 				cnt++;
 				v = k-1;
 			}
