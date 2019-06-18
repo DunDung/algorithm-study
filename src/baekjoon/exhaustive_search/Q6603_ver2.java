@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//로또
+//백트래킹
+//X
 public class Q6603_ver2 {
 	public static List<Integer> list = new ArrayList<>(); 
 	public static void go(int [] a, int index, int cnt) {
-		if(cnt==6) {
+		if(cnt==6) { //출력
 			for(int v : list)
 				System.out.print(v+" ");
 			System.out.println();
