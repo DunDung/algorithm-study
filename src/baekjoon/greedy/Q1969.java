@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+//DNA
 public class Q1969 {
 
 	public static void main(String[] args) {
