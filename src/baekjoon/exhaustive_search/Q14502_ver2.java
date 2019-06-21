@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+//연구소
+//내방식
 public class Q14502_ver2 {
 
 	static int [] dx = {1, -1, 0, 0};
