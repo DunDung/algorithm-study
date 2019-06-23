@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //숫자판 점프
+//x
 public class Q2210 {
 
 	static int [] dx = {1, -1, 0, 0};
