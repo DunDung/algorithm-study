@@ -10,6 +10,7 @@ public class Q2210 {
 
 	static int [] dx = {1, -1, 0, 0};
 	static int [] dy = {0, 0, 1, -1};
+	
 	public static void backtrack(int[][]a, List<String> ans, String str, int x, int y) {
 		if(str.length()==6) {
 			if(!ans.contains(str)) {
@@ -41,8 +42,5 @@ public class Q2210 {
 			}
 		}
 		System.out.println(ans.size());
-
-
 	}
-
 }
