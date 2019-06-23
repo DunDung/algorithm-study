@@ -3,6 +3,7 @@ package baekjoon.exhaustive_search;
 import java.util.Scanner;
 
 //부분수열의 합
+//X
 public class Q1182 {
 	static int ans = 0;
 	public static void backtrack(int[]a, int sum, int index, int s) {
@@ -25,8 +26,8 @@ public class Q1182 {
 
 		for(int i=0; i<n; i++)
 			a[i] = scan.nextInt();
-		
 		backtrack(a, 0, 0, s);
+		if(s == 0) ans--;
 		System.out.println(ans);
 	}
 }
