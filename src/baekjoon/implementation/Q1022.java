@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //소용돌이 예쁘게 출력하기
 public class Q1022 {
-
+실패
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int r1 = scan.nextInt();
