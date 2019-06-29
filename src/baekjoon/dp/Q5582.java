@@ -23,5 +23,4 @@ public class Q5582 {
 		}
 		System.out.println(ans);
 	}
-
 }
