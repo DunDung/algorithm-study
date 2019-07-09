@@ -4,66 +4,66 @@ import java.util.Scanner;
 import java.util.Stack;
 
 //문자열 폭발
+//X
 public class Q9935 {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String a = scan.nextLine();
 		String b = scan.nextLine();
-		Stack<Character> as= new Stack<>();
-		Stack<Character> bs= new Stack<>();
-
-		for(int i=a.length()-1; i>=0; i--) {
-			as.push(a.charAt(i));
-		}
-		for(int i=b.length()-1; i>=0; i--) {
-			bs.push(b.charAt(i));
-		}
-
-		while(true) {
-			boolean isOk = false;
-			Stack<Character> asFake= new Stack<>();
-			Stack<Character> bsFake= new Stack<>();
-			int n = as.size();
-			int m = bs.size();
+		int n = a.length();
+		int m = b.length();
+		boolean [] erased = new boolean[n];
+		if(m == 1) {
 			for(int i=0; i<n; i++) {
-				if(as.peek()==bs.peek()) {
-					String ac = "";
-					String bc = "";
-					for(int j=0; j<m; j++) {
-						ac += as.pop();
-						bc += bs.pop();
-					}
-					if(!ac.equals(bc)) { //다름
-						for(int j=m-1; j>=0; j--) {
-							asFake.push(ac.charAt(j));
-							bsFake.push(bc.charAt(j));
-						}
-					}
-					else { //같음
-						for(int j=m-1; j>=0; j--) {
-							bsFake.push(bc.charAt(j));
-						}
-						isOk = true;
-					}
-					i+=m-1;
-					bs.addAll(bsFake);
-					bsFake.clear();
-				}
-				else {
-					asFake.push(as.pop());
+				if(a.charAt(i) == b.charAt(0)) {
+					erased[i] = true;
 				}
 			}
-			as.addAll(asFake);
-			asFake.clear();
-			if(!isOk)
-				break;
+		}else {
+			Stack<Pair> s = new Stack<>();
+			for(int i=0; i<n; i++) {
+				if(a.charAt(i) == b.charAt(0)){
+					s.push(new Pair(i, 0));
+				} else {
+					if(!s.isEmpty()) {
+						Pair p = s.peek();
+						if(a.charAt(i) == b.charAt(p.y+1)) {
+							s.push(new Pair(i, p.y+1));
+							if(p.y+1 == m-1) {
+								for(int j=0; j<m; j++) {
+									erased[s.pop().x] = true;
+								}
+							}
+						} else {
+							while(!s.isEmpty()) {
+								s.pop();
+							}
+						}
+					}
+				}
+			}
 		}
-실패
-		for(char c : as) {
-			System.out.print(c);
+		boolean printed = false;
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i<n; i++) {
+			if(erased[i]) continue;
+			sb.append(a.charAt(i));
+			printed = true;
+		}
+		if(!printed) {
+			System.out.println("FRULA");
+		} else {
+			System.out.println(sb.toString());
 		}
 	}
-
+}
+class Pair{
+	int x;
+	int y;
 	
+	public Pair(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 }

@@ -6,81 +6,75 @@ import java.util.Stack;
 //검열
 //X
 public class Q3111 {
-실패
 	public static void main(String[] args)  {
 		Scanner scan = new Scanner(System.in);
 		String key = scan.next();
 		String text = scan.next();
 		Stack<Character> left = new Stack<>();
 		Stack<Character> right = new Stack<>();
-
 		int start = 0;
 		int end = text.length()-1;
 		boolean isRemove = false;
-		int leftKeyIdx = 0;
-		int rightKeyIdx = key.length()-1;
+
 		while(start <= end) {
-			while(start <= end) {
+
+			if(!isRemove) {
 				left.push(text.charAt(start++));
-				if(left.peek() == key.charAt(leftKeyIdx)) {
-					leftKeyIdx++;
-				}else {
-					leftKeyIdx = 0;
-					if(left.peek() == key.charAt(0)) {
-						leftKeyIdx = 1;
-					} 
-				}
-				if(leftKeyIdx == key.length()) {
-					leftKeyIdx = 0;
-					isRemove = true;
-					for(int j=0; j<key.length(); j++) {
-						left.pop();
+				if(left.size() >= key.length() && left.peek() == key.charAt(key.length()-1)) {
+					int keyLen = key.length()-1;
+					boolean check = true;
+					for(int j=left.size()-1; j>=left.size()-key.length(); j--) {
+						if(left.get(j) != key.charAt(keyLen--)) {
+							check = false;
+							break;
+						}
 					}
-					if(!left.isEmpty() && left.peek()==key.charAt(0)) {
-						leftKeyIdx++;
+					if(check) {
+						isRemove = true;
+						for(int j=0; j<key.length(); j++) {
+							left.pop();
+						}
+
 					}
-					break;
 				}
 			}
-
-
-			while(start <= end) {
-
+			if(isRemove && start <= end) {
+				String keyRev = new StringBuilder(key).reverse().toString();
 				right.push(text.charAt(end--));
-				if(right.peek() == key.charAt(rightKeyIdx)) {
-					rightKeyIdx--;
-				}else {
-					rightKeyIdx = key.length()-1;
-					if(right.peek() == key.charAt(key.length()-1)) {
-						rightKeyIdx--;
+				if(right.size() >= key.length() && right.peek() == keyRev.charAt(key.length()-1)) {
+					int keyLen = key.length()-1;
+					boolean check = true;
+					for(int j=right.size()-1; j>=right.size()-key.length(); j--) {
+						if(right.get(j) != keyRev.charAt(keyLen--)) {
+							check = false;
+							break;
+						}
 					}
-				} 
-				if(rightKeyIdx == -1) {
-					rightKeyIdx = key.length()-1;
-					isRemove = false;
-					for(int j=0; j<key.length(); j++) {
-						right.pop();
+					if(check) {
+						for(int j=0; j<key.length(); j++) {
+							right.pop();
+						}
+						isRemove = false;
 					}
-					if(!right.isEmpty() && right.peek() == key.charAt(key.length()-1)) {
-						rightKeyIdx--;
-					}
-					break;
+
 				}
 			}
-		}
-		while(!right.isEmpty()) {
-			left.push(right.pop());
-		}
 
+		}
+		int leftSize = left.size();
+		for(int i=0; i<leftSize; i++) {
+			right.push(left.pop());
+		}
 		String ans = "";
-		for(int i=0; i<left.size(); i++) {
-			ans+=left.get(i);
+		while(!right.isEmpty()) {
+			ans += right.pop();
 		}
+		StringBuilder sb = new StringBuilder(ans);
 		while(true) {
-			int idx = ans.indexOf(key);
+			int idx = sb.indexOf(key);
 			if(idx < 0) break;
-			ans = new StringBuilder(ans).delete(idx, idx+key.length()).toString();
+			sb.delete(idx, idx+key.length());
 		}
-		System.out.println(ans);
+		System.out.println(sb.toString());
 	}
 }
