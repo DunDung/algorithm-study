@@ -65,11 +65,10 @@ public class Q3111 {
 		for(int i=0; i<leftSize; i++) {
 			right.push(left.pop());
 		}
-		String ans = "";
+		StringBuilder sb = new StringBuilder();
 		while(!right.isEmpty()) {
-			ans += right.pop();
+			sb.append(right.pop());
 		}
-		StringBuilder sb = new StringBuilder(ans);
 		while(true) {
 			int idx = sb.indexOf(key);
 			if(idx < 0) break;
