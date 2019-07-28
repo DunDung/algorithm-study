@@ -26,5 +26,4 @@ public class Q2231 {
 		}
 		System.out.println(ans);
 	}
-
 }
