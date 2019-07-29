@@ -7,11 +7,11 @@ import java.util.StringTokenizer;
 
 //체스판 다시 칠하기
 public class Q1018 {
-	static char [][] white = new char[8][8];
-	static char [][] black = new char[8][8];
+	static char [][] white = new char[8][8]; //왼쪽 위코너 흰
+	static char [][] black = new char[8][8]; //왼쪽 위코너 검
 	static int ans = Integer.MAX_VALUE;
 	
-	public static void buildChess() {
+	public static void buildChess() { // 비교할 정석 체스판 만들기
 		int k = 0;
 		for(int i=0; i<8; i++) {
 			for(int j=0; j<8; j++) {
@@ -37,7 +37,7 @@ public class Q1018 {
 			k++;
 		}
 	}
-	public static void compare(char [][] a, int x, int y) {
+	public static void compare(char [][] a, int x, int y) { //다시 칠해야하는 개수 찾기
 		int cnt = 0;
 		for(int i=0; i<8; i++) {
 			for(int j=0; j<8; j++) {
