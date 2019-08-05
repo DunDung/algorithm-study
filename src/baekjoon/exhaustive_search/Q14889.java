@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 public class Q14889 {
 	public static int [][] a;
 	public static int n;
-	public static List<List<Integer>> list = new ArrayList<>();
 	public static int ans = Integer.MAX_VALUE;
 	public static boolean [] team = new boolean[21];
 
@@ -23,11 +22,11 @@ public class Q14889 {
 				if(!team[i]) {
 					team[i] = true;
 					go(i, cnt+1);
-					team[i] = false;
 					
 				}
 			}
 		}
+		team[k-1] = false;
 	}
 	
 	public static void calculation() {
