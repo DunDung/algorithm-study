@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 //스타트와 링크
-//백트래킹 까먹음 X
+//백트래킹 까먹음 ->  X
 public class Q14889 {
 	public static int [][] a;
 	public static int n;
