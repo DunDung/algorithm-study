@@ -3,9 +3,6 @@ package baekjoon.exhaustive_search;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.StringTokenizer;
 
 //스타트와 링크
@@ -16,14 +13,14 @@ public class Q14889 {
 	public static int ans = Integer.MAX_VALUE;
 	public static boolean [] team = new boolean[21];
 
-	public static void go(int k, int cnt) {
+	public static void makeTeam(int k, int cnt) {
 		if(n/2 == cnt) {
 			calculation();
 		} else {
 			for(int i=k; i<=n; i++) {
 				if(!team[i]) {
 					team[i] = true;
-					go(i, cnt+1);
+					makeTeam(i, cnt+1);
 					team[i] = false;
 				}
 			}
@@ -58,7 +55,7 @@ public class Q14889 {
 				a[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		go(1, 0);
+		makeTeam(1, 0);
 		
 
 		System.out.print(ans);
