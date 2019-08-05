@@ -16,5 +16,4 @@ public class Q1904 {
 		}
 		System.out.println(dp[n]%15746);
 	}
-
 }
