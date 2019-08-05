@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
+//스타트와 링크
+//백트래킹 까먹음 X
 public class Q14889 {
 	public static int [][] a;
 	public static int n;
@@ -22,11 +24,10 @@ public class Q14889 {
 				if(!team[i]) {
 					team[i] = true;
 					go(i, cnt+1);
-					
+					team[i] = false;
 				}
 			}
 		}
-		team[k-1] = false;
 	}
 	
 	public static void calculation() {
