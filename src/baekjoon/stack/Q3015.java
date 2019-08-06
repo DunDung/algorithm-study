@@ -6,13 +6,14 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 //오아시스 재결합
+//X
 public class Q3015 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(reader.readLine());
 		Stack<Pair2> s = new Stack<>();
-		int ans = 0;
+		long ans = 0;
 
 		for(int i=0; i<n; i++) {
 			int k = Integer.parseInt(reader.readLine());
@@ -21,7 +22,7 @@ public class Q3015 {
 				if(s.peek().x <= p.x) {
 					ans+= s.peek().y;
 					if(s.peek().x == p.x){
-						p.y += 1;
+						p.y += s.peek().y;
 					}
 					s.pop();
 				} else {
@@ -29,7 +30,7 @@ public class Q3015 {
 				}
 			}
 			if(!s.isEmpty()) {
-				ans += s.peek().y;
+				ans += 1;
 			}
 			s.push(p);
 		}
