@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+//최대 힙
+//X
 public class Q11279 {
-	public static int [] heap = new int[10001];
-	public static int size = 1;
+	public static int [] heap = new int[100001];
+	public static int size = 0;
 	public static StringBuilder sb = new StringBuilder();
 
 	public static void swap(int x, int y) {
@@ -14,28 +16,33 @@ public class Q11279 {
 		heap[x] = heap[y];
 		heap[y] = temp;
 	}
-	public static void buildHeap(int x) {
-		int value = heap[2*x] > heap[(2*x)+1] ? heap[2*x] : heap[(2*x)+1];
-		if(heap[x] < value) {
-			if(heap[2*x] > heap[(2*x)+1]) {
-				swap(x, 2*x);
-				buildHeap(2*x);
+	public static void push(int x) {
+		heap[++size] = x;
+		//삽입한 것 부터 힙인지 확인, 힙이아니면 계속 부모노드로 올라가고 힙이면 break
+		for(int i=size; i>1; i/=2) {
+			if(heap[i/2] < heap[i]) {
+				swap(i/2, i);
 			} else {
-				swap(x, (2*x)+1);
-				buildHeap((2*x)+1);
+				break;
 			}
 		}
 	}
+
 	public static void pop() {
-		if(size>1) {
-			sb.append(heap[1]+"\n");
-			swap(1, size);
-			heap[size--] = 0;
-			buildHeap(1);
-		} else {
-			sb.append(0+"\n");
+		sb.append(heap[1]+"\n");
+		heap[1] = heap[size];
+		heap[size--] = 0;
+		for(int i=1; i*2<=size;) {
+			if(heap[i] > heap[i*2] && heap[i] > heap[i*2+1]) {
+				break;
+			}else if(heap[i*2] > heap[i*2+1]) {
+				swap(i, i*2);
+				i = i*2;
+			} else {
+				swap(i, i*2+1);
+				i = i*2+1;
+			}
 		}
-		System.out.println(size);
 	}
 	public static void main(String[] args) throws IOException{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -43,13 +50,16 @@ public class Q11279 {
 		for(int i=0; i<n; i++) {
 			int k = Integer.parseInt(reader.readLine());
 			if(k==0) {
-				pop();
+				if(size == 0) {
+					sb.append(0+"\n");
+				} else {
+					pop();
+				}
 			} else {
-				heap[size++] = k;
-				buildHeap(size/2);
+				push(k);
 			}
 		}
-		System.out.println(sb.toString());
+		System.out.print(sb.toString());
 	}
 
 }
