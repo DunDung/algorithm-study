@@ -3,8 +3,6 @@ package baekjoon.exhaustive_search;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 //연산자 끼워넣기
@@ -55,8 +53,8 @@ public class Q1488_ver2 {
 		}
 		dfs(1, a[0]);
 		StringBuilder sb = new StringBuilder();
-		sb.append(min+"\n");
-		sb.append(max);
+		sb.append(max+"\n");
+		sb.append(min);
 		System.out.println(sb.toString());
 	}
 }
