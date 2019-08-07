@@ -5,12 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//집합의 표현
-public class Q1717 {
+//바이러스
+//유니온 파인드로 풀기
+public class Q2606 {
 	public static int [] parent;
 	
 	public static int find(int x) {
-		if(x == parent[x]) 
+		if(parent[x] == x)
 			return x;
 		return parent[x] = find(parent[x]);
 	}
@@ -18,36 +19,31 @@ public class Q1717 {
 	public static void union(int x, int y) {
 		x = find(x);
 		y = find(y);
-		if(x!=y) {
+		if(x != y) {
 			parent[y] = x;
 		}
 	}
+	
 	public static void main(String[] args) throws IOException{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(reader.readLine());
-		int n = Integer.parseInt(st.nextToken());
-		int m = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(reader.readLine());
 		parent = new int[n+1];
-		for(int i=0; i<=n; i++) {
-			parent[i] = i; //parent 초기화
+		for(int i=1; i<=n; i++) {
+			parent[i] = i;
 		}
-		
-		StringBuilder sb = new StringBuilder();
+		int m = Integer.parseInt(reader.readLine());
 		for(int i=0; i<m; i++) {
-			st = new StringTokenizer(reader.readLine());
-			int o = Integer.parseInt(st.nextToken());
+			StringTokenizer st = new StringTokenizer(reader.readLine());
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
-			if(o==0) {
-				union(x,y);
-			} else {
-				if(find(x)==find(y)) {
-					sb.append("YES\n");
-				} else {
-					sb.append("NO\n");
-				}
+			union(x, y);
+		}
+		int ans = 0;
+		for(int i=2; i<=n; i++) {
+			if(find(1) == find(i)) {
+				ans++;
 			}
 		}
-		System.out.print(sb.toString());
+		System.out.println(ans);
 	}
 }
