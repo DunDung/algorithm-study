@@ -1,4 +1,4 @@
-package baekjoon.dp;
+package baekjoon.topological_sort;
 
 import java.io.BufferedReader;
 import java.io.IOException;

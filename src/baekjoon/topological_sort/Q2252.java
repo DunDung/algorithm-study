@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 //줄 세우기
+//X
 public class Q2252 {
 	public static Stack<Integer> s = new Stack<>();
 	
