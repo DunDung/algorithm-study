@@ -51,6 +51,6 @@ public class Q9576 {
 	public int compareTo(Book o) {
 		int r = this.b - o.b;
 		if(r==0) r = this.a - o.a;
-		return a;
+		return r;
 	}
 }
