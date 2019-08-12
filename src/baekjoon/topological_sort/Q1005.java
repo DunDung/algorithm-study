@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 //ACM 크래프트
+//X
 public class Q1005 {
 	public static int target; // 승리 위한 건물 번호
 	public static int [] cost; //비용
