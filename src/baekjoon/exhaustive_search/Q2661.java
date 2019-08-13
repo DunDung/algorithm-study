@@ -10,7 +10,7 @@ public class Q2661 {
 	public static boolean isCheck(String s) {
 		int len = s.length();
 		int k = 2;
-		for(int i=0; i<len/2-1; i++) {
+		while(k <= len/2) {
 			if(s.substring(len-k, len).equals(s.substring(len-(2*k), len-k))){
 				return false;
 			}
@@ -22,11 +22,11 @@ public class Q2661 {
 	public static void backtrack(String s) {
 		if(s.length() == n) {
 			System.out.println(s);
-			System.exit(1);
+			System.exit(0);
 		}
 		for(int i=1; i<=3; i++) {
 			if(s.charAt(s.length()-1)-'0' == i) continue;
-			if(s.length() < 3) {
+			if(s.length()+1 < 4) {
 				backtrack(s+i);
 			}else if(isCheck(s+i)) {
 				backtrack(s+i);
