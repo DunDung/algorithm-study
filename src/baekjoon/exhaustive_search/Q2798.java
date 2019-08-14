@@ -1,4 +1,4 @@
-package baekjoon.implementation;
+package baekjoon.exhaustive_search;
 
 import java.util.Scanner;
 
