@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
 //평범한 배낭
 public class Q12865 {
 
@@ -25,18 +29,13 @@ public class Q12865 {
 		for(int i=1; i<=k; i++) {
 			for(int j=1; j<=n; j++) {
 				if(i >= w[j]) {
-					dp[i][j] = Math.max(dp[i][j-1], dp[i-w[j]][j]+v[j]);
+				    dp[i][j] = Math.max(dp[i][j-1], dp[i-w[j]][j-1]+v[j]);
 				} else {
 					dp[i][j] = dp[i][j-1];
 				}
 			}
 		}
-		//물건을 하나만 사용해야 한다. 반례
-		//		4 6
-		//		6 13
-		//		3 8
-		//		7 15
-		//		2 6
 		System.out.println(dp[k][n]);
 	}
 }
+

@@ -1,69 +1,90 @@
 package baekjoon.exhaustive_search;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+
 
 //고기 잡이
 public class Q7573 {
 
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int n = scan.nextInt();
-		int g = scan.nextInt();
-		int m = scan.nextInt();
-		int [][] a = new int [n][n];
-
-		List<Pos> fPos = new ArrayList<>();
+	public static void main(String[] args) throws IOException{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(reader.readLine());
+		int n = Integer.parseInt(st.nextToken()); //모눈종이크기
+		int l = Integer.parseInt(st.nextToken()); //그물길이
+		int m = Integer.parseInt(st.nextToken()); //물고기개수
+		Pos [] fish = new Pos[m];
+		
 		for(int i=0; i<m; i++) {
-			int x = scan.nextInt();
-			int y = scan.nextInt();
-			fPos.add(new Pos(x, y));
+			st = new StringTokenizer(reader.readLine());
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(st.nextToken());
+			fish[i] = new Pos(x,y);
 		}
-
-		List<Pos> gPos = new ArrayList<>();
-		for(int i=1; i<g/2; i++) {
-			for(int j=1; j<g/2; j++) {
-				if(i+j == g/2)
-					gPos.add(new Pos(i, j));
+		
+		List<Pos> net = new ArrayList<>();
+		for(int i=1; i<l/2; i++) {
+			for(int j=1; j<l/2; j++) {
+				if(i+j == l/2) {
+					net.add(new Pos(i, j));
+				}
 			}
 		}
-		실패
 		int ans = 0;
-		for(int i=0; i<fPos.size(); i++) {
-			for(int j=0; j<gPos.size(); j++) {
+		for(int i=0; i<fish.length; i++) {
+			int x = fish[i].x;
+			int y = fish[i].y;
+			for(int j=0; j<net.size(); j++) {
+				int tx = net.get(j).x;
+				int ty = net.get(j).y;
 				int cnt = 0;
-				for(int k=0; k<fPos.size(); k++) {
-					if(fPos.get(i).x + gPos.get(j).x <= n && fPos.get(i).y + gPos.get(j).y <= n) {
-						if(fPos.get(k).x>=fPos.get(i).x && fPos.get(k).y>=fPos.get(i).y ) {
-							if( fPos.get(i).x + gPos.get(j).x >= fPos.get(k).x && fPos.get(i).y + gPos.get(j).y >= fPos.get(k).y) {
-								cnt++;
-							}
+				if(x-tx>=1 && y+ty<=n) {
+					for(int k=0; k<fish.length; k++) {
+						int fx = fish[k].x;
+						int fy = fish[k].y;
+						if(x-tx<=fx && x>=fx && y<=fy && y+ty>=fy) {
+							cnt++;
 						}
 					}
+					ans = Math.max(cnt, ans);
 				}
-				if(cnt>ans)
-					ans = cnt;
-			}
-		}
-		for(int i=0; i<fPos.size(); i++) {
-			for(int j=0; j<gPos.size(); j++) {
-				int cnt = 0;
-				for(int k=0; k<fPos.size(); k++) {
-					if(gPos.get(j).x - fPos.get(i).x > 0 && gPos.get(j).x - fPos.get(i).x > 0) {
-						if(fPos.get(k).x<=fPos.get(i).x && fPos.get(k).y<=fPos.get(i).y ) {
-							if( gPos.get(j).x-fPos.get(i).x  <= fPos.get(k).x && gPos.get(j).y-fPos.get(i).y <= fPos.get(k).y) {
-								cnt++;
-							}
+				cnt = 0;
+				if(x+tx<=n && y+ty<=n) {
+					for(int k=0; k<fish.length; k++) {
+						int fx = fish[k].x;
+						int fy = fish[k].y;
+						if(x<=fx && x+tx>=fx && y<=fy && y+ty>=fy) {
+							cnt++;
 						}
 					}
+					ans = Math.max(cnt, ans);
 				}
-				if(cnt>ans)
-					ans = cnt;
+				cnt = 0;
+				if(x+tx<=n && y-ty>=1) {
+					for(int k=0; k<fish.length; k++) {
+						int fx = fish[k].x;
+						int fy = fish[k].y;
+						if(x<=fx && x+tx>=fx && y-ty<=fy && y>=fy) {
+							cnt++;
+						}
+					}
+					ans = Math.max(cnt, ans);
+				}
+				cnt=0;
+				if(x-tx>=1 && y-ty>=n) {
+					for(int k=0; k<fish.length; k++) {
+						int fx = fish[k].x;
+						int fy = fish[k].y;
+						if(x-tx<=fx && x>=fx && y-ty<=fy && y>=fy) {
+							cnt++;
+						}
+					}
+					ans = Math.max(cnt, ans);
+				}
 			}
 		}
 		System.out.println(ans);
+		
 	}
 }
 
