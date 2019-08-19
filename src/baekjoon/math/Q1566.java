@@ -3,87 +3,83 @@ package baekjoon.math;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 //P¹è¿­
 public class Q1566 {
 	public static int n;
 	public static int m;
-	public static boolean [] visited;
 	public static int[][]a;
-	public static int ans = Integer.MAX_VALUE;
 
-	public static boolean isP(int v) {
-
-		for(int i=0; i<n; i++) {
-			int sumRow = 0;
-			int sumCol = 0;
-			for(int j=0; j<m; j++) {
-				if(v<n && v==i) {
-					a[v][j]*= -1;
-				}
-				if(v>=n && v-n==i) {
-					a[j][v-n]*= -1;
-				}
-				sumRow+=a[i][j];
-				sumCol+=a[j][i];
-			}
-			if(sumRow<0 || sumCol<0) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	public static void backtrack(int cnt) {
-		for(int i=0; i<n+m; i++) {
-			if(!visited[i]) {
-				visited[i] = true;
-				if(isP(i)) {
-					ans = Math.min(ans, cnt);
-				}
-				backtrack(cnt+1);
-				if(isP(i)) {
-					ans = Math.min(ans, cnt);
-				}
-				visited[i] = false;
-			}
-		}
-	}
 	public static void main(String[] args) throws IOException{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String [] input = reader.readLine().split(" ");
 		n = Integer.parseInt(input[0]);
 		m = Integer.parseInt(input[1]);
 		a = new int[n][m];
-		visited = new boolean[n+m];
-
 		for(int i=0; i<n; i++) {
 			input = reader.readLine().split(" ");
 			for(int j=0; j<m; j++) {
 				a[i][j] = Integer.parseInt(input[j]);
 			}
 		}
-		boolean isOk = true;
-		for(int i=0; i<n; i++) {
-			int sumRow = 0;
-			int sumCol = 0;
-			for(int j=0; j<m; j++) {
-				sumRow+=a[i][j];
-				sumCol+=a[j][i];
+		int cnt = 0;
+		while(cnt <= n+m) {
+			int min = Integer.MAX_VALUE;
+			int x = 0;
+			int y = 0;
+			boolean isOk = true;
+			for(int i=0; i<n; i++) {
+				int sum = 0;
+				for(int j=0; j<m; j++) {
+					sum+=a[i][j];
+					if(min > a[i][j]) {
+						min = a[i][j];
+						x = i;
+						y = j;
+					}
+				}
+				if(sum < 1) {
+					isOk = false;
+				}
 			}
-			if(sumRow<0 || sumCol<0) {
-				isOk = false;
+			for(int i=0; i<m; i++) {
+				int sum = 0;
+				for(int j=0; j<n; j++) {
+					sum+=a[j][i];
+				}
+				if(sum < 1) {
+					isOk = false;
+				}
 			}
+			int sum = 0;
+			for(int i=0; i<m; i++) {
+				sum += a[x][i];
+			}
+			if(sum < 1) {
+				for(int i=0; i<m; i++) {
+					a[x][i] *= -1;
+				}
+				cnt++;
+				continue;
+			}
+			sum = 0;
+			for(int i=0; i<n; i++) {
+				sum += a[i][y];
+			}
+			if(sum < 1) {
+				for(int i=0; i<n; i++) {
+					a[i][y] *= -1;
+				}
+				cnt++;
+				continue;
+			}
+			if(isOk) break;
 		}
-		if(isOk) {
-			System.out.println(0);
+		if(cnt>n+m) {
+			System.out.println(-1);
 		} else {
-			backtrack(1);
-			if(ans == Integer.MAX_VALUE) {
-				System.out.println(-1);
-			} else {
-				System.out.println(ans);
-			}
+			System.out.println(cnt);
 		}
 	}
 
