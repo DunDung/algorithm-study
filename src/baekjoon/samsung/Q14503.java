@@ -1,4 +1,4 @@
-package baekjoon.simulation;
+package baekjoon.samsung;
 
 import java.util.Scanner;
 

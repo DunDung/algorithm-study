@@ -1,31 +1,31 @@
-package baekjoon.exhaustive_search;
+package baekjoon.samsung;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 //연구소
-//남의 방식을 참조
-//X
-public class Q14502 {
+//내방식
+public class Q14502_ver2 {
+
 	static int [] dx = {1, -1, 0, 0};
 	static int [] dy = {0, 0, 1, -1};
 	static int max = 0;
 	
 	public static int area(int[][]a) {
-		Queue<Pos5> q = new LinkedList<>();
+		Queue<Pos4> q = new LinkedList<>();
 		int [][] clone = new int[a.length][a[0].length];
 		for(int i=0; i<a.length; i++) {
 			for(int j=0; j<a[0].length; j++) {
 				clone[i][j] = a[i][j];
 				if(a[i][j] == 2) {
-					q.add(new Pos5(i, j));
+					q.add(new Pos4(i, j));
 				}
 			}
 		}
 		
 		while(!q.isEmpty()) {
-			Pos5 p  = q.poll();
+			Pos4 p  = q.poll();
 			int x = p.x;
 			int y = p.y;
 			
@@ -34,7 +34,7 @@ public class Q14502 {
 					if(y+dy[k]>=0 && y+dy[k]<a[0].length) {
 						if(clone[x+dx[k]][y+dy[k]] == 0) {
 							clone[x+dx[k]][y+dy[k]] = 2;
-							q.add(new Pos5(x+dx[k], y+dy[k]));
+							q.add(new Pos4(x+dx[k], y+dy[k]));
 						}
 					}
 				}
@@ -59,15 +59,18 @@ public class Q14502 {
 		}
 		if(index == a.length * a[0].length) return;
 		
-		for(int i=index; i<a.length * a[0].length; i++ ) {
-			int x = i / a[0].length;
-			int y = i % a[0].length;
-			if(a[x][y] == 0) {
-				a[x][y] = 1;
-				backtrack(a, i+1, cnt+1);
-				a[x][y] = 0;
-			}
+		int x = index / a[0].length;
+		int y = index % a[0].length;
+		
+		if(a[x][y] == 0) {
+			a[x][y] = 1;
+			backtrack(a, index+1 , cnt+1); //사용하는 경우
+			a[x][y] = 0; 
+			backtrack(a, index+1 , cnt); //사용하지 않는 경우
+		} else {
+			backtrack(a, index+1 , cnt);
 		}
+			
 	}
 
 	public static void main(String[] args) {
@@ -87,11 +90,11 @@ public class Q14502 {
 		
 	}
 }
-class Pos5 {
+class Pos4 {
 	int x;
 	int y;
 	
-	public Pos5(int x, int y) {
+	public Pos4(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

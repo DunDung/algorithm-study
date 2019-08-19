@@ -1,4 +1,4 @@
-package coding_test_outflow;
+package question_of_registration;
 
 import java.util.Scanner;
 
