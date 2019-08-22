@@ -1,14 +1,10 @@
-package baekjoon.exhaustive_search;
+package baekjoon.samsung;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.io.*;
+import java.util.*;
 
 //¾ß±¸°ø
+//X
 public class Q17281 {
 	public static boolean [] visited = new boolean[10];
 	public static List<String> list = new ArrayList<>();
@@ -23,9 +19,9 @@ public class Q17281 {
 		a = new int[n][9];
 
 		for(int i=0; i<n; i++) {
-			String [] input = reader.readLine().split(" ");
+			StringTokenizer st = new StringTokenizer(reader.readLine());
 			for(int j=0; j<9; j++) {
-				a[i][j] = Integer.parseInt(input[j]);
+				a[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 		backtrack(0);
