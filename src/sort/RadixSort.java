@@ -19,7 +19,7 @@ public class RadixSort {
 
 	static void countSort(int a[],  int exp) 
 	{ 
-		int output[] = new int[a.length]; // output aay 
+		int output[] = new int[a.length];  
 		int count[] = new int[10]; 
 
 		for (int i = 0; i < a.length; i++) //각 자리수에 맞게 카운팅
