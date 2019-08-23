@@ -1,96 +1,70 @@
 package baekjoon.samsung;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 //색종이 붙이기
+//X
 public class Q17136 {
-	static int [] arr1= {5, 5, 5, 5, 5};
-	static int [] arr2= {5, 5, 5, 5, 5};
-	static void check1(int[][]a, int x, int y) {
-		int n =4;
-		while(n>0) {
-			boolean isOk = true;
-			loop:
-			for(int i=0; i<=n; i++) {
-				for(int j=0; j<=n; j++) {
-					if(x+i>9 || y+j>9 ||a[x+i][y+j]!=1) {
-						isOk = false;
-						break loop;
-					}
-				}
-			}
-			if(isOk) {
-				arr1[n]--;
-				for(int i=0; i<=n; i++)
-					for(int j=0; j<=n; j++){
-						a[x+i][y+j] = -1*n;
-					}
-				return;
-			}
-			n--;
-		}
-		arr1[0]--;
-		a[x][y] = -1;
-	}
-	static void check2(int[][]a, int x, int y) {
-		int n =4;
-		while(n>0) {
-			boolean isOk = true;
-			loop:
-				for(int i=0; i<=n; i++) {
-					for(int j=0; j<=n; j++) {
-						if(x-i<0 || y-j<0 ||a[x-i][y-j]!=1) {
-							isOk = false;
-							break loop;
-						}
-					}
-				}
-			if(isOk) {
-				arr2[n]--;
-				for(int i=0; i<=n; i++)
-					for(int j=0; j<=n; j++){
-						a[x-i][y-j] = -1*n;
-					}
-				break;
-			}
-			n--;
-			실패
-		}
-		if(n==0) {
-		arr2[0]--;
-		a[x][y] = -1;
-		}
-	}
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int[][]a = new int[10][10];
-		int[][]b = new int[10][10];
-		for(int i=0; i<10; i++)
-			for(int j=0; j<10; j++) {
-				a[i][j] = scan.nextInt();
-				b[i][j] = a[i][j];
-			}
-		for(int i=9; i>=0; i--) {
-			for(int j=9; j>=0; j--) {
-				if(a[i][j]==1) {
-					check2(b,i,j);
-				}
+	static int [][] a = new int[10][10];
+	static int [] coloredPaper = {0, 5, 5, 5, 5, 5};
+	static int ans = Integer.MAX_VALUE;
 
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		for(int i=0; i<10; i++) {
+			StringTokenizer st = new StringTokenizer(reader.readLine());
+			for(int j=0; j<10; j++) {
+				a[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		System.out.println(Arrays.toString(arr2));
-		System.out.println(Arrays.deepToString(b));
-		int sum=0;
-		for(int i=0; i<5; i++) {
-			if(arr1[i]<0) {
-				sum = -1;
-				break;
-			}
-			sum += 5-arr1[i];
+		dfs(0, 0);
+		System.out.println(ans==Integer.MAX_VALUE ? -1 : ans);
+	}
+
+	public static void dfs(int idx, int cnt) {
+		if(idx == 100) { 
+			ans = Math.min(ans, cnt);
+			return;
 		}
-		System.out.println(sum);
-			
+		if(ans <= cnt) return;
+
+		int r = idx/10;
+		int c = idx%10;
+		if(a[r][c] == 1) {
+			for(int i=5; i>0; i--) {
+				if(coloredPaper[i] > 0) {
+					if(check(r, c, i)) {
+						fill(r, c, i, 0);
+						coloredPaper[i]--;
+						dfs(idx+1, cnt+1);
+						fill(r, c, i, 1);
+						coloredPaper[i]++;
+					}
+				}
+			}
+		} else {
+			dfs(idx+1, cnt);
+		}
+	}
+
+	public static boolean check(int r, int c, int size) {
+		if(r+size>10 || c+size>10) return false;
+		for(int i=0; i<size; i++) {
+			for(int j=0; j<size; j++) {
+				if(a[r+i][c+j] != 1) return false;
+			}
+		}
+		return true;
+	}
+
+	public static void fill(int r, int c, int size, int state) {
+		for(int i=0; i<size; i++) {
+			for(int j=0; j<size; j++) {
+				a[r+i][c+j] = state;
+			}
+		}
 	}
 }
-
