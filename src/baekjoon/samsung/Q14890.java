@@ -30,9 +30,6 @@ public class Q14890 {
 				listRow.add(a[i][j]);
 				listCol.add(a[j][i]);
 			}
-//			if(solve(listCol, m)==1) {
-//				System.out.println(i);
-//			}
 			ans += solve(listRow, m);
 			ans += solve(listCol, m);
 		}
