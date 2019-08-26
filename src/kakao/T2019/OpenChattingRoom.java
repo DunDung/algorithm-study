@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//1번
 //오픈채팅방
 public class OpenChattingRoom {
 

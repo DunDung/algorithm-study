@@ -2,6 +2,7 @@ package kakao.T2019;
 
 import java.util.Arrays;
 
+//2번
 //실패율
 //X
 //나누기할때는 항상 예외처리를 하자..
