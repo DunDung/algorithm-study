@@ -7,21 +7,21 @@ import java.util.Arrays;
 //X
 //나누기할때는 항상 예외처리를 하자..
 public class FailureRate {
-	public static int[] solution(int N, int[] stages) {
+	public int[] solution(int N, int[] stages) {
 		int[] a = new int[N+1];
-		int[] player = new int[N+1];
+		int[] players = new int[N+1];
 		for(int i=0; i<stages.length; i++) {
 			if(stages[i] == N+1) continue;
 			a[stages[i]] ++;
 		}
-		player[0] = stages.length;
+		players[0] = stages.length;
 		Rate[]rates = new Rate[N];
 		for(int i=1; i<=N; i++) {
-			player[i] = player[i-1] - a[i-1];
-			if((double)a[i]/player[i] == 0) {
+			players[i] = players[i-1] - a[i-1];
+			if((double)a[i]/players[i] == 0) {
 				rates[i-1] = new Rate(i, 0);
 			} else {
-				rates[i-1] = new Rate(i, (double)a[i]/player[i]);
+				rates[i-1] = new Rate(i, (double)a[i]/players[i]);
 			}
 		}
 		Arrays.sort(rates);
@@ -40,7 +40,6 @@ class Rate implements Comparable<Rate>{
 		this.num = num;
 		this.rate = rate;
 	}
-
 	@Override
 	public int compareTo(Rate o) {
 		int r = new Double(this.rate).compareTo(o.rate)*-1;
