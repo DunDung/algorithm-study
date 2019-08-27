@@ -2,6 +2,8 @@ package kakao.T2019;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,27 +21,29 @@ public class CandidateKey {
 	}
 	public static int solution(String[][] relation) {
 		backTrack(relation, "", 0, 0);
-		
-		int size = list.size();
-		for(int i=0; i<size; i++) {
-			for(int j=i+1; j<size; j++) {
-				if(new StringBuilder(list.get(j)).indexOf(list.get(i)) >= 0) {
-					System.out.println(list.remove(list.get(j)));
-					size--;
-					j--;
-					System.out.println(size);
-				}
-			}
-		}
-		return list.size();
-		
+
+		int answer = 0;
+		Collections.sort(list);
+        while(!list.isEmpty()) {
+        	String v = list.remove(0);
+        	answer++;
+        	Iterator<String> it = list.iterator();
+        	while(it.hasNext()) {
+        		String s = it.next();
+        		if(new StringBuilder(s).indexOf(v)>=0) {
+        			it.remove();
+        		}
+        	}
+        }
+        return answer;
+
 	}
 	public static void backTrack(String[][] relation, String s, int idx, int cnt) {
-		if(idx >= relation[0].length || cnt > relation.length) {
+		if(idx >= relation[0].length) {
+			if(check(relation, s)) {
+				list.add(s);
+			}
 			return;
-		}
-		if(check(relation, s)) {
-			list.add(s);
 		}
 		backTrack(relation, s+idx, idx+1, cnt+1);
 		backTrack(relation, s, idx+1, cnt);
