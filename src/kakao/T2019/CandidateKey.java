@@ -1,53 +1,46 @@
 package kakao.T2019;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 //3번
 //후보키
+//X
 public class CandidateKey {
-	static List<String> list = new ArrayList<>();
+	static List<Integer> list = new ArrayList<>();
 
-	public static void main(String[] args) throws IOException{
-		String [][] s = {{"100", "ryan", "music", "2"}, {"200","apeach","math","2"},
-				{"300","tube","computer","3"}, {"400","con","computer","4"}, {"500","muzi","music","3"},
-				{"600","apeach","music","2"}};
-		System.out.println(solution(s));
-	}
 	public static int solution(String[][] relation) {
-		backTrack(relation, "", 0, 0);
-
+		dfs(relation, "", -1);
 		int answer = 0;
 		Collections.sort(list);
         while(!list.isEmpty()) {
-        	String v = list.remove(0);
+        	int v = list.remove(0);
         	answer++;
-        	Iterator<String> it = list.iterator();
+        	Iterator<Integer> it = list.iterator();
         	while(it.hasNext()) {
-        		String s = it.next();
-        		if(new StringBuilder(s).indexOf(v)>=0) {
+        		int next = it.next();
+        		if((next&v) == v) {
         			it.remove();
         		}
         	}
         }
-        return answer;
+		return answer;
 
 	}
-	public static void backTrack(String[][] relation, String s, int idx, int cnt) {
-		if(idx >= relation[0].length) {
+	public static void dfs(String[][] relation, String s, int idx) {
+		if(idx == relation[0].length-1) {
 			if(check(relation, s)) {
-				list.add(s);
+				int now = 0;
+				for(int i=0; i<s.length(); i++) {
+					now |= 1<<(s.charAt(i)-'0');
+				}
+				list.add(now);
 			}
 			return;
 		}
-		backTrack(relation, s+idx, idx+1, cnt+1);
-		backTrack(relation, s, idx+1, cnt);
+		dfs(relation, s+(idx+1), idx+1);
+		dfs(relation, s, idx+1);
 	}
+	
 	public static boolean check(String[][] relation, String s) {
 		Set<String> set = new TreeSet<>();
 		for(int i=0; i<relation.length; i++) {
