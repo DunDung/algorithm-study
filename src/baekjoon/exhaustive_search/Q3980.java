@@ -3,9 +3,9 @@ package baekjoon.exhaustive_search;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
+//선발 명단
 public class Q3980 {
 	static int max;
 
@@ -21,10 +21,11 @@ public class Q3980 {
 					a[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-			max = 0;
+			max = Integer.MIN_VALUE;
 			dfs(a, 0, 0, 0);
-			System.out.println(max);
+			sb.append(max+"\n");
 		}
+		System.out.print(sb.toString());
 	}
 	public static void dfs(int[][]a, int r, int sum, int bit) {
 		if(r==11) {
