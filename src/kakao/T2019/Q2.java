@@ -2,11 +2,10 @@ package kakao.T2019;
 
 import java.util.Arrays;
 
-//2번
 //실패율
 //X
 //나누기할때는 항상 예외처리를 하자..
-public class FailureRate {
+public class Q2 {
 	public int[] solution(int N, int[] stages) {
 		int[] a = new int[N+1];
 		int[] players = new int[N+1];

@@ -4,7 +4,7 @@ import java.util.*;
 
 //ÈÄº¸Å°
 //ºü¸£°í ±ò²û
-public class CandidateKey_ver2 {
+public class Q3_ver2 {
 	
 	public static int solution(String[][] relation) {
 		int n = relation.length;

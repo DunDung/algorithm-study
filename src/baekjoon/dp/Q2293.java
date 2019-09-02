@@ -22,12 +22,9 @@ public class Q2293 {
 			coins[i] = Integer.parseInt(reader.readLine());
 		}
 		for(int i=1; i<=n; i++) {
-			for(int j=1; j<=k; j++) {
-				if(j >= coins[i]) {
+			for(int j=coins[i]; j<=k; j++) {
 					dp[j] += dp[j-coins[i]];
-				}
 			}
-			System.out.println(Arrays.toString(dp));
 		}
 		System.out.println(dp[k]);
 	}

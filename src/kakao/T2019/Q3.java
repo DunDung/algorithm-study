@@ -2,10 +2,9 @@ package kakao.T2019;
 
 import java.util.*;
 
-//3번
 //후보키
 //X
-public class CandidateKey {
+public class Q3 {
 	static List<Integer> list = new ArrayList<>();
 
 	public static int solution(String[][] relation) {
