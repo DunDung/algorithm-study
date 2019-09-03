@@ -78,5 +78,6 @@ public class Q5 {
 		if(!n.right.isEmpty()) {
 			make(n.right.get(0), n.right);
 		}
+		
 	}
 }
