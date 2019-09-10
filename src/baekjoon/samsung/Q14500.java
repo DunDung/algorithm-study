@@ -31,6 +31,7 @@ public class Q14500 {
 			int c = i%m;
 			visited[i] = true;
 			dfs(i, a[r][c], 0, visited);
+			getException(i);
 			Arrays.fill(visited, false);
 		}
 		System.out.println(max);
@@ -42,13 +43,33 @@ public class Q14500 {
 		}
 		int r = idx/m;
 		int c = idx%m;
+		visited[idx] = true;
 		for(int i=0; i<4; i++) {
 			if(r+tx[i]>=0 && r+tx[i]<n && c+ty[i]>=0 && c+ty[i]<m) {
 				if(!visited[(r+tx[i])*m+c+ty[i]]) {
-					visited[(r+tx[i])*m+c+ty[i]] = true;
 					dfs((r+tx[i])*m+c+ty[i], sum+a[r+tx[i]][c+ty[i]], cnt+1, visited);
-					visited[(r+tx[i])*m+c+ty[i]] = false;
 				}
+			}
+		}
+		visited[idx] = false;
+	}
+	static void getException(int idx) {
+		int r = idx/m;
+		int c= idx%m;
+		int sum = a[r][c];
+		int cnt = 0;
+		for(int i=0; i<4; i++) {
+			if(r+tx[i]>=0 && r+tx[i]<n && c+ty[i]>=0 && c+ty[i]<m) {
+				sum+= a[r+tx[i]][c+ty[i]];
+				cnt++;
+			}
+		}
+		if(cnt<3 || sum < max) return;
+		if(cnt==3) {
+			max = Math.max(max, sum);
+		} else {
+			for(int i=0; i<4; i++) {
+				max = Math.max(max, sum-a[r+tx[i]][c+ty[i]]);
 			}
 		}
 	}
