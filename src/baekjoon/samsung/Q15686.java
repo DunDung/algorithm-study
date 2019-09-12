@@ -6,11 +6,8 @@ import java.util.*;
 public class Q15686 {
 	static int n;
 	static int m;
-	static List<List<Integer>> chickenList = new ArrayList<>();
 	static List<Integer> chickens = new ArrayList<>();
 	static List<Integer> homes = new ArrayList<>();
-	static int[] tx = {1, -1, 0, 0};
-	static int[] ty = {0, 0, -1, 1};
 	static int min = Integer.MAX_VALUE;
 	
 	public static void main(String[] args) throws IOException{
@@ -34,7 +31,7 @@ public class Q15686 {
 		if(cnt==m) {
 			int sum = 0;
 			for(int i=0; i<homes.size(); i++) {
-				sum += bfs(temp, homes.get(i));
+				sum += calc(temp, homes.get(i));
 				if(sum > min) break;
 			}
 			min = Math.min(sum, min);
@@ -45,7 +42,8 @@ public class Q15686 {
 		dfs(temp, idx+1, cnt+1);
 		dfs(temp, idx+1, cnt);
 	}
-	static int bfs(int[] temp, int idx) {
+	
+	static int calc(int[] temp, int idx) {
 		int dist = Integer.MAX_VALUE;
 		int r1 = idx/n;
 		int c1 = idx%n;
