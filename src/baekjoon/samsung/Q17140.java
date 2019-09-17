@@ -5,146 +5,112 @@ import java.io.*;
 
 //이차원 배열과 연산
 public class Q17140 {
-	static int r,c,k,cnt;
+	static int r,c,k;
+	static int[][] map;
+	static int[] cnt;
+	static List<Temp> list;
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(reader.readLine());
-		r  = Integer.parseInt(st.nextToken());
-		c  = Integer.parseInt(st.nextToken());
+		r  = Integer.parseInt(st.nextToken())-1;
+		c  = Integer.parseInt(st.nextToken())-1;
 		k  = Integer.parseInt(st.nextToken());
-		List<List<Integer>> numList = new ArrayList<>();
 
+		map = new int[3][3];
 		for(int i=0; i<3; i++) {
 			st = new StringTokenizer(reader.readLine());
-			numList.add(new ArrayList<>());
 			for(int j=0; j<3; j++) {
-				int v = Integer.parseInt(st.nextToken());
-				numList.get(i).add(v);
+				map[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		Map<Integer, Integer> map = new HashMap<>();
-		r(numList, 0);
-		//		for(List<Integer> list : tempList) {
-		//			for(int i=0; i<list.size(); i++) {
-		//				System.out.print(list.get(i)+" ");
-		//			}
-		//			System.out.println();
-		//		}
-	}
-	static void r(List<List<Integer>> numList, int cnt) {
-//		if(numList.get(r-1).get(c-1) == k) {
-//			System.out.println(cnt);
-//			return;
-//		}
-		if(cnt > 100) {
-			System.out.println(-1);
-			return;
-		}
+		int time = -1;
 
-		List<List<Integer>> tempList = new ArrayList<>();
-		int[] count = new int[101];
-		int maxSize = Integer.MIN_VALUE;
-		for(int i=0; i<numList.size(); i++) {
-			for(int j=0; j<numList.get(i).size(); j++) {
-				count[numList.get(i).get(j)]++;
-			}
-			List<Temp> list = new ArrayList<>();
-			for(int k=1; k<=100; k++) {
-				if(count[k] >= 1) {
-					list.add(new Temp(count[k], k));
-					if(list.size()==50) {
-						break;
-					}
-				}
-			}
-			if(maxSize < list.size()) maxSize = list.size();
-			Arrays.fill(count, 0);
-			Collections.sort(list);
-			tempList.add(new ArrayList<Integer>());
-			for(Temp t : list) {
-				tempList.get(i).add(t.fre);
-				tempList.get(i).add(t.num);
-			}
-			if(tempList.size() == 100) {
+		while(true) {
+			time++;
+
+			if(time > 100) {
+				time = -1;
 				break;
 			}
-		}
-		for(int i=0; i<tempList.size(); i++) {
-			if(tempList.get(i).size()<maxSize*2) {
-				for(int j=maxSize*2 - tempList.get(i).size(); j>0; j--) {
-					tempList.get(i).add(0);
+			if(r < map.length && c < map[0].length) {
+				if(map[r][c] == k) 	break;
+			}
+
+			int row = map.length;
+			int col = map[0].length;
+
+			int[][] temp = new int[101][101];
+
+			if(row >= col) {
+				int max = Integer.MIN_VALUE;
+				for(int i=0; i<row; i++) {
+					cnt = new int[101];
+					for(int j=0; j<col; j++) {
+						cnt[map[i][j]]++;
+					}
+					list = new ArrayList<>();
+					for(int j=1; j<=100; j++) {
+						if(cnt[j] >= 1) {
+							list.add(new Temp(j, cnt[j]));
+						}
+					}
+					Collections.sort(list);
+					int z = 0;
+					for(int j=0; j<list.size(); j++) {
+						temp[i][z++] = list.get(j).num;
+						temp[i][z++] = list.get(j).fre;
+					}
+					if(max < list.size()*2) max = list.size()*2;
 				}
-			}
-		}
-		c(tempList, cnt+1);
-
-	}
-	static void c(List<List<Integer>> numList, int cnt) {
-//		if(numList.get(r-1).get(c-1) == k) {
-//			System.out.println(cnt);
-//			return;
-//		}
-		if(cnt > 100) {
-			System.out.println(-1);
-			return;
-		}
-
-		List<List<Integer>> tempList = new ArrayList<>();
-		List<List<Temp>> list = new ArrayList<>();
-		int[] count = new int[101];
-		int maxSize = Integer.MIN_VALUE;
-
-		for(int i=0; i<numList.get(0).size(); i++) {
-			list.add(new ArrayList<Temp>());
-			for(int j=0; j<numList.size(); j++) {
-				count[numList.get(j).get(i)]++;
-			}
-			int colSize = 0;
-			for(int k=1; k<=100; k++) {
-				if(count[k] >= 1) {
-					list.get(i).add(new Temp(count[k], k));
-					colSize++;
-					if(colSize==50) {
-						break;
+				if(max > 100) max = 100;
+				map = new int[row][max];
+				for(int i=0; i<map.length; i++) {
+					for(int j=0; j<map[i].length; j++) {
+						map[i][j] = temp[i][j];
 					}
 				}
 			}
-			if(maxSize < list.size()) maxSize = list.size();
-			Arrays.fill(count, 0);
-			Collections.sort(list.get(i));
-			if(list.size()==50) break;
-		}
-		for(int i=0; i<maxSize; i++)
-			tempList.add(new ArrayList<>());
-		for(int i=0; i<list.size(); i++) {
-			for(int j=0; j<maxSize; j++) {
-				if(list.get(i).size() <= j) {
-					tempList.get(j).add(0);
-					continue;
+			else {
+				int max = Integer.MIN_VALUE;
+				for(int i=0; i<col; i++) {
+					cnt = new int[101];
+					for(int j=0; j<row; j++) {
+						cnt[map[j][i]]++;
+					}
+					list = new ArrayList<>();
+					for(int j=1; j<=100; j++) {
+						if(cnt[j] >= 1) {
+							list.add(new Temp(j, cnt[j]));
+						}
+					}
+					Collections.sort(list);
+					int z = 0;
+					for(int j=0; j<list.size(); j++) {
+						temp[z++][i] = list.get(j).num;
+						temp[z++][i] = list.get(j).fre;
+					}
+					if(max < list.size()*2) max = list.size()*2;
 				}
-				if(j%2 == 0) {
-					tempList.get(j).add(list.get(i).get(j).fre);
-				} else {
-					tempList.get(j).add(list.get(i).get(j).num);
+				if(max > 100) max = 100;
+				map = new int[max][col];
+				for(int i=0; i<map.length; i++) {
+					for(int j=0; j<map[i].length; j++) {
+						map[i][j] = temp[i][j];
+					}
 				}
 			}
 		}
-		for(List<Integer> zlist : tempList) {
-			for(int i=0; i<zlist.size(); i++) {
-				System.out.print(zlist.get(i)+" ");
-			}
-			System.out.println();
-		}
+		System.out.println(time);
 	}
 }
 class Temp implements Comparable<Temp>{
-	int fre;
 	int num;
+	int fre;
 
-	public Temp(int fre, int num) {
-		this.fre = fre;
+	public Temp(int num, int fre) {
 		this.num = num;
+		this.fre = fre;
 	}
 
 	@Override
