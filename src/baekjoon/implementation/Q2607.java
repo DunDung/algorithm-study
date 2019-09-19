@@ -25,11 +25,11 @@ public class Q2607 {
 					temp[comp.charAt(i)-'A']--;
 				}
 			}
-			if(len-1 == comp.length() && cnt == comp.length()) {
+			if(len-1 == comp.length() && cnt == comp.length()) { //길이가 한글자 작을 때
 				ans++;
-			} else if(len == comp.length()) {
+			} else if(len == comp.length()) { //길이가 같을 때
 				if(cnt == len || cnt == len-1) ans++;
-			} else if(len+1 == comp.length()) {
+			} else if(len+1 == comp.length()) { //길이가 한글자 클 때
 				if(cnt == len) ans++;
 			}
 		}
