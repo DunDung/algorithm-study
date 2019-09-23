@@ -12,7 +12,7 @@ public class Q17300 {
     static boolean chk = true;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new Buff¤ÁeredWriter(new OutputStreamWriter(System.out));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String line = br.readLine();
         int L = Integer.parseInt(line);
