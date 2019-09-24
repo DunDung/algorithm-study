@@ -35,9 +35,11 @@ public class Q17299 {
 			}
 			stack.push(a[i]);
 		}
+		StringBuilder sb = new StringBuilder();
 		for(int k : ans) {
-			System.out.print(k+" ");
+			sb.append(k+" ");
 		}
+		System.out.print(sb.toString());
 	}
 
 }
