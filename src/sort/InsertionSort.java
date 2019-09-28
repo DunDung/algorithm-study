@@ -16,11 +16,12 @@ public class InsertionSort {
 				else
 					break;
 			a[j+1] = value; //j값이 --되면서 for문을 빠져나오기 때문에 j+1
+			System.out.println(Arrays.toString(a));
 		}
 	}
 	
 	public static void main(String[] args) {
-		int [] example = {9, 3, 2, 4, 6, 7, 8, 1, 5};
+		int [] example = {9, 8, 1, 7, 5};
 		insertionSort(example);
 		System.out.println(Arrays.toString(example));
 	}
