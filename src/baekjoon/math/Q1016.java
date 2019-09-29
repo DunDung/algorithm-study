@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 
 //제곱 ㄴㄴ 수
+//X
+//start부분이 이해가 잘안감
 public class Q1016 {
 
 	public static void main(String[] args) throws IOException{
@@ -16,9 +18,8 @@ public class Q1016 {
 
 		for(long i = 2; i*i <= max; i++) {
 			long powNum = i*i;
-			long startNum = min + (powNum -(min%powNum))%powNum;
-
-			for(long j = startNum; j <= max; j += powNum) {
+			long start = min + (powNum -(min%powNum))%powNum;
+			for(long j = start; j <= max; j += powNum) {
 				if(!arr[(int)(j - min)]) {
 					arr[(int)(j - min)] = true;
 					cnt--;
