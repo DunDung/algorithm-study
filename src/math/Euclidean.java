@@ -18,8 +18,8 @@ public class Euclidean {
 		return a;
 	}
 	public static void main(String[] args) {
-		int a = 1000000000-1;
-		int b = 1;
+		int a = 3;
+		int b = 7;
 		b = gcd1(a, b);
 		System.out.println(b);
 	}
