@@ -10,18 +10,19 @@ public class InsertionSort {
 		for(int i=1; i<a.length; i++) {
 			int value = a[i];
 			int j;
-			for(j=i-1; j>=0; j--) //j--인 점을 잊지말고 value보다 작으면 멈추기에 적절한 위치에 value를 껴 넣을 수 있다.
+			for(j=i-1; j>=0; j--) {//j--인 점을 잊지말고 value보다 작으면 멈추기에 적절한 위치에 value를 껴 넣을 수 있다.
 				if(a[j]>value)
 					a[j+1] = a[j];
 				else
 					break;
+				System.out.println(Arrays.toString(a));
+			}
 			a[j+1] = value; //j값이 --되면서 for문을 빠져나오기 때문에 j+1
-			System.out.println(Arrays.toString(a));
 		}
 	}
 	
 	public static void main(String[] args) {
-		int [] example = {9, 8, 1, 7, 5};
+		int [] example = {9, 10, 2, 4, 5};
 		insertionSort(example);
 		System.out.println(Arrays.toString(example));
 	}

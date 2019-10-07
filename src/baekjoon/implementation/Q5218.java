@@ -28,5 +28,4 @@ public class Q5218 {
 		}
 		System.out.print(sb.toString());
 	}
-
 }
