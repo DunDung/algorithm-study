@@ -5,12 +5,14 @@ public class Q3 {
 
 	public boolean solution(int[][] key, int[][] lock) {
 		int len = lock.length;
+		//3배 확장 후 중앙으로 옮기기
 		int[][] copyLock = new int[len*3][len*3];
 		for(int i=0; i<len; i++) {
 			for(int j=0; j<len; j++) {
 				copyLock[i+len][j+len] = lock[i][j];
 			}
 		}
+		
 		dfs(key, copyLock, 0);
 		return isOk;
 	}
@@ -65,7 +67,7 @@ public class Q3 {
 		check(key, lock, x, y+1);
 	}
 	
-	public int[][] rotate(int [][] key) {
+	public int[][] rotate(int [][] key) { //회전
 		int len = key.length;
 		int[][] temp = new int[len][len];
 		for(int i=0; i<len; i++) {
