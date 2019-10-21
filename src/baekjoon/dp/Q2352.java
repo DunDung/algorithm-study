@@ -1,4 +1,4 @@
-package baekjoon.greedy;
+package baekjoon.dp;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -12,10 +12,11 @@ public class Q2352 {
 		
 		tailTable[0] = a[0]; // 초기값
 		int length = 1;
+		int start = 0;
 		
 		for(int i=1; i<a.length; i++) { //후보값이 처음값보다 작을 때
-			if(tailTable[0] > a[i]) {
-				tailTable[0] = a[i];
+			if(tailTable[start] > a[i]) {
+				tailTable[start++] = a[i];
 			}
 			else if(tailTable[length-1] < a[i]) { //후보값이 마지막값보다 클 때
 				tailTable[length] = a[i];
