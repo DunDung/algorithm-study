@@ -24,8 +24,6 @@ public class Q10539 {
 			sb.append(a[i]+" ");
 			a[i] += a[i-1];
 		}
-		
 		System.out.print(sb.toString());
-		
 	}
 }
