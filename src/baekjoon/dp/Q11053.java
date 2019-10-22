@@ -23,7 +23,6 @@ public class Q11053 {
 					dp[i] = dp[j]+1;
 		}
 		Arrays.sort(dp);
-		
 		System.out.println(dp[n-1]);
 			
 	}
