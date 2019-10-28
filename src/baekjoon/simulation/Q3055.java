@@ -29,6 +29,7 @@ public class Q3055 {
 				else if(map[i][j] == '*') waterQ.add(new Pos(i, j));
 			}
 		}
+		
 		while(!hedgehogQ.isEmpty()) {
 			int size = waterQ.size();
 			while(size-- > 0) {
