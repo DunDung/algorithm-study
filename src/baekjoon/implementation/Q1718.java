@@ -1,11 +1,11 @@
 package baekjoon.implementation;
 
-import java.util.*;
 import java.io.*;
 
 //¾ÏÈ£
 public class Q1718 {
 	static final int MAX_ARPABET = 26;
+	
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = br.readLine();
