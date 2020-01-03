@@ -3,7 +3,8 @@ package baekjoon.form;
 import java.util.*;
 import java.io.*;
 
-//문제 이름
+// 문제이름
+// 날짜
 public class Form {
 
 	public static void main(String[] args) throws IOException{
