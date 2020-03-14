@@ -1,3 +1,5 @@
+package soma;
+
 import java.util.Scanner;
 
 public class Q1 {
@@ -7,29 +9,29 @@ public class Q1 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		N = scanner.nextInt();
-		int 최대몫 = N / nums[0];
+		int maxMok = N / nums[0];
 		int index = 0;
 		for (int i = 1; i < 10; i++) {
-			if (최대몫 <= N / nums[i]) {
-				최대몫  = N / nums[i];
+			if (maxMok <= N / nums[i]) {
+				maxMok  = N / nums[i];
 				index = i;
 			}
 		}
-		int 나머지 = N % nums[index];
-		boolean 바꿨는지= false;
-		int 나머지값중최대값 = 0;
+		int namuge = N % nums[index];
+		boolean isCheck= false;
+		int maxOfNamuge = 0;
 		for (int i = 0; i < 10; i++) {
-			if (나머지 >= nums[i]) {
-				바꿨는지 = true;
-				나머지값중최대값 = Math.max(나머지값중최대값, i);
+			if (namuge >= nums[i]) {
+				isCheck = true;
+				maxOfNamuge = Math.max(maxOfNamuge, i);
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 최대몫; i++) {
+		for (int i = 0; i < maxMok; i++) {
 			sb.append(index);
 		}
-		if (바꿨는지){
-			sb.append(나머지값중최대값);
+		if (isCheck){
+			sb.append(maxOfNamuge);
 		}
 		System.out.println(sb);
 	}
