@@ -1,21 +1,22 @@
-package bc_2020;
+package boostcamp_2020;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+// 부스트캠프 2020 1차 코테 문제 2번
+// 2020. 07. 04
 public class Q2 {
 
     public static void main(String[] args) {
-
+        System.out.println(Arrays.toString(solution3(new int[]{3}, new int[]{1,0,1,1,0})));
     }
 
-    public int[] solution3(int[] arrayA, int[] arrayB) {
+    public static int[] solution3(int[] arrayA, int[] arrayB) {
         int[] answer = new int[5];
-        List<Integer> a = new ArrayList<>();
-        List<Integer> b = new ArrayList<>();
         List<Integer> sum = new ArrayList<>();
-        add(arrayA, a, sum);
-        add(arrayB, b, sum);
+        List<Integer> a = add(arrayA, sum);
+        List<Integer> b = add(arrayB, sum);
         answer[0] = a.size();
         answer[1] = b.size();
         answer[2] = sum.size();
@@ -29,14 +30,16 @@ public class Q2 {
         return answer;
     }
 
-    public void add(int[] arr, List<Integer> aOrB, List<Integer> sum) {
+    public static List<Integer> add(int[] arr, List<Integer> sum) {
+        List<Integer> list = new ArrayList<>();
         for (int k : arr) {
-            if (!aOrB.contains(k)) {
-                aOrB.add(k);
+            if (!list.contains(k)) {
+                list.add(k);
             }
             if (!sum.contains(k)) {
                 sum.add(k);
             }
         }
+        return list;
     }
 }
