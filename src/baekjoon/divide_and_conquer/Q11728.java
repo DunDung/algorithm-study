@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//배열 합치기
-//merge로 구현
 public class Q11728 {
 
 	public static void main(String[] args) throws IOException {
@@ -26,9 +24,9 @@ public class Q11728 {
 		for(int i=0; i<m; i++)
 			b[i] = Integer.parseInt(st.nextToken());
 		
-		int i=0; //a배열
-		int j=0; //b배열
-		int k=0; //임시배열
+		int i=0;
+		int j=0;
+		int k=0;
 		int [] temp = new int[n+m];
 		
 		while(i<n && j<m) {

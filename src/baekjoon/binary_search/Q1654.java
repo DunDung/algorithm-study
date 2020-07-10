@@ -2,7 +2,7 @@ package baekjoon.binary_search;
 
 import java.util.Scanner;
 
-//·£¼± ÀÚ¸£±â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½ï¿½ï¿½
 //X
 public class Q1654 {
 
@@ -11,7 +11,7 @@ public class Q1654 {
 		for (int i=0; i<a.length; i++) {
 			cnt += a[i]/x;
 		}
-		return cnt >= n; //x·Î Àß¶úÀ» ¶§  n°³ ÀÌ»óÀÎÁö ¸®ÅÏ
+		return cnt >= n; //xï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½ ï¿½ï¿½  nï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	public static void main(String args[]) {

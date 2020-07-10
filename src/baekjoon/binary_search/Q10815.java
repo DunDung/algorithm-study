@@ -3,7 +3,7 @@ package baekjoon.binary_search;
 import java.io.*;
 import java.util.*;
 
-//¼ıÀÚ Ä«µå
+// ìˆ«ì ì¹´ë“œ
 public class Q10815 {
 
 	public static void main(String[] args) throws IOException{
