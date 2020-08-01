@@ -1,4 +1,4 @@
-package woowacouse_2;
+package woowacouse2;
 
 public class Q1 {
 

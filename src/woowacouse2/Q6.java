@@ -1,4 +1,4 @@
-package woowacouse_2;
+package woowacouse2;
 
 import java.util.Set;
 import java.util.TreeSet;

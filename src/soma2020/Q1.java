@@ -1,4 +1,4 @@
-package soma_2020;
+package soma2020;
 
 import java.util.Scanner;
 
