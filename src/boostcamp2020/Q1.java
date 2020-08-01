@@ -1,4 +1,4 @@
-package boostcamp_2020;
+package boostcamp2020;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.List;
 // 2020. 07. 04
 public class Q1 {
     public static void main(String[] args) {
-        System.out.println(solution2(new String[] {"봄가을겨울", "여울", "봄겨"}));
+        System.out.println(solution2(new String[]{"봄가을겨울", "여울", "봄겨"}));
     }
 
     public static boolean solution2(String[] name_list) {

@@ -1,4 +1,4 @@
-package boostcamp_2020;
+package boostcamp2020;
 
 import java.util.ArrayList;
 import java.util.Arrays;
