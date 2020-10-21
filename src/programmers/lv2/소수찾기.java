@@ -3,8 +3,8 @@ package programmers.lv2;
 import java.util.Arrays;
 
 // 2020.10.21
-public class ¼Ò¼öÃ£±â {
-    private static boolean[] primes = ¿¡¶óÅä½ºÅ×³×½ºÀÇÃ¼();
+public class ì†Œìˆ˜ì°¾ê¸° {
+    private static boolean[] primes = ì—ë¼í† ìŠ¤í…Œë„¤ìŠ¤ì˜ì²´();
     private static int count = 0;
 
     public static int solution(String numbers) {
@@ -28,7 +28,7 @@ public class ¼Ò¼öÃ£±â {
         }
     }
 
-    public static boolean[] ¿¡¶óÅä½ºÅ×³×½ºÀÇÃ¼() {
+    public static boolean[] ì—ë¼í† ìŠ¤í…Œë„¤ìŠ¤ì˜ì²´() {
         int length = 10000000;
         boolean[] check = new boolean[length];
         Arrays.fill(check, true);

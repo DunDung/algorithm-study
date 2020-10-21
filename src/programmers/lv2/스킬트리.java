@@ -2,9 +2,8 @@ package programmers.lv2;
 
 import java.util.Arrays;
 
-// 스킬 트리
 // 2020. 07. 03
-public class SkillTrees {
+public class 스킬트리 {
 
     public int solution(String skill, String[] skill_trees) {
         int answer = skill_trees.length;

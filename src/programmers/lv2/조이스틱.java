@@ -1,8 +1,7 @@
 package programmers.lv2;
 
-//조이 스틱
 //2020. 07. 02
-public class JoyStick {
+public class 조이스틱 {
     public static void main(String[] args) {
         System.out.println(solution("CANAAAAANAN"));
     }

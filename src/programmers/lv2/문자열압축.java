@@ -1,7 +1,7 @@
 package programmers.lv2;
 
 // 2020.10.20
-public class 문자열_압축 {
+public class 문자열압축 {
 
     public static void main(String[] args) {
         System.out.println(solution("aaaaaaaaaaaaaaaa"));

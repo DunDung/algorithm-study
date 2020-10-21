@@ -1,8 +1,7 @@
 package programmers.lv2;
 
 // 2020. 07. 01
-// 큰수 만들기
-public class MakeMaxValue {
+public class 큰수만들기 {
     public static void main(String[] args) {
         System.out.println(solution("1231234", 3));
     }
