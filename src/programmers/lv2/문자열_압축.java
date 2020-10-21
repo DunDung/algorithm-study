@@ -1,18 +1,15 @@
 package programmers.lv2;
 
-import java.util.Stack;
-
 // 2020.10.20
 public class 문자열_압축 {
 
     public static void main(String[] args) {
-        // System.out.println(compress("aabbaccc", 1));
-        System.out.println(solution("ababcdcdababcdcd"));
+        System.out.println(solution("aaaaaaaaaaaaaaaa"));
     }
 
     public static int solution(String s) {
         int minResult = Integer.MAX_VALUE;
-        int maxSize = s.length() / 2;
+        int maxSize = s.length() / 2 + 1;
 
         while (maxSize >= 1) {
             minResult = Math.min(minResult, compress(s, maxSize));
@@ -24,30 +21,30 @@ public class 문자열_압축 {
     public static int compress(String s, int size) {
         int index = 0;
         int length = s.length();
-        int result = 0;
-        int count = 0;
-        Stack<String> stack = new Stack<>();
+        int result = length;
+        int count = 1;
+        String before = "";
         while (index + size <= length) {
             String key = s.substring(index, index + size);
             index += size;
-            if (stack.isEmpty()) {
-                stack.push(key);
-                result += key.length();
+            if (before == null) {
+                before = key;
                 continue;
             }
-            if (!stack.peek().equals(key)) {
-                result += stack.pop().length();
-                if (count > 1) {
-                    result++;
-                    count = 0;
-                }
-            } else {
+            if (before.equals(key)) {
                 count++;
+                result -= size;
+            } else {
+                before = key;
+                if (count > 1) {
+                    result += String.valueOf(count).length();
+                    count = 1;
+                }
             }
         }
-        if (!stack.isEmpty()) {
-            result += stack.pop().length() + 1;
+        if (count > 1) {
+            result += String.valueOf(count).length();
         }
-        return result + s.length() % size;
+        return result;
     }
 }
