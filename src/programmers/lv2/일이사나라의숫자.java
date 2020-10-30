@@ -1,6 +1,6 @@
 package programmers.lv2;
 
-public class 일이삼나라의숫자 {
+public class 일이사나라의숫자 {
 
     public static void main(String[] args) {
         System.out.println(solution(16));
