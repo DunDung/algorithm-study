@@ -2,7 +2,8 @@ package programmers.lv2;
 
 import java.util.Arrays;
 
-public class ±¸¸íº¸Æ® {
+// 2020.11.23
+public class êµ¬ëª…ë³´íŠ¸ {
     public int solution(int[] people, int limit) {
         Arrays.sort(people);
         int answer = 0;
