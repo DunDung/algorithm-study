@@ -3,7 +3,7 @@ package programmers.lv2;
 //2020. 07. 02
 public class 조이스틱 {
     public static void main(String[] args) {
-        System.out.println(solution("CANAAAAANAN"));
+        System.out.println(solution("BABAB"));
     }
     public static int solution(String name) {
         int answer = 0;
@@ -14,6 +14,7 @@ public class 조이스틱 {
                 continue;
             }
             answer += move(actualIndex, i, name.length()) ;
+            answer += Math.min(nowAlphabet - 'A', 'Z' - nowAlphabet + 1);
             actualIndex = i;
         }
         return answer;
@@ -28,7 +29,7 @@ public class 조이스틱 {
         if (expectedIndex <= actualIndex) {
             left = actualIndex - expectedIndex;
         } else {
-            left = (actualIndex - 0) + (size - expectedIndex);
+            left = actualIndex + (size - expectedIndex);
         }
         return Math.min(left, right);
     }
