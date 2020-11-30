@@ -10,7 +10,7 @@ public class 전화번호목록 {
         Set<String> hash = new HashSet<>();
         Arrays.sort(phoneBook, Comparator.comparingInt(String::length));
         for (String phoneNumber : phoneBook) {
-            for (int i = 0; i < phoneNumber.length(); i++) {
+            for (int i = 0; i < phoneNumber.length() - 1; i++) {
                 String sub = phoneNumber.substring(0, i + 1);
                 if (hash.contains(sub)) {
                     return false;
