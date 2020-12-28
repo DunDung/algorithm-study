@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 // 2020. 12. 24
-public class ¿µ¾î³¡¸»ÀÕ±â {
+public class ì˜ì–´ëë§ì‡ê¸° {
 
     public int[] solution(int n, String[] words) {
         String lastWord = "";
