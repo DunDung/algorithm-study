@@ -17,19 +17,20 @@ public class Q10828 {
                 int input2 = scanner.nextInt();
                 stack.push(input2);
             } else if (input.equals("pop")) {
-                stringBuilder.append(stack.isEmpty() ? -1 : stack.pop());
-                stringBuilder.append("\n");
+                append(stringBuilder, stack.isEmpty() ? -1 : stack.pop());
             } else if (input.equals("size")) {
-                stringBuilder.append(stack.size());
-                stringBuilder.append("\n");
+                append(stringBuilder, stack.size());
             } else if (input.equals("empty")) {
-                stringBuilder.append(stack.isEmpty() ? 1 : 0);
-                stringBuilder.append("\n");
+                append(stringBuilder,stack.isEmpty() ? 1 : 0);
             } else if (input.equals("top")) {
-                stringBuilder.append(stack.isEmpty() ? -1 : stack.peek());
-                stringBuilder.append("\n");
+                append(stringBuilder,stack.isEmpty() ? -1 : stack.peek());
             }
         }
         System.out.print(stringBuilder);
+    }
+
+    private static void append(StringBuilder stringBuilder, int result) {
+        stringBuilder.append(result);
+        stringBuilder.append(System.lineSeparator());
     }
 }
